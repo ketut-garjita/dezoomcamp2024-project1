@@ -16,11 +16,23 @@ The data has been collected from a real-world ecommerce website. It is raw data,
 The behaviour data, i.e. events like clicks, add to carts, transactions, represent interactions that were collected over a period of 4.5 months. A visitor can make three types of events, namely **view**, **addtocart** or **transaction**. 
 
 ## Technologies / Tools
-- Containerisation: Docker
-- Cloud: GCP
-- Infrastructure as code (IaC): Terraform
-- Workflow orchestration: Mage-ai
-- Data Wareshouse: BigQuery
-- Batch processing: pyspark
-- Visualisation: Google Data Studio
-  
+- Containerisation : Docker
+- Cloud : GCP
+- Infrastructure as code (IaC) : Terraform
+- Workflow orchestration : Mage-ai
+- Data Wareshouse : BigQuery
+- Batch processing : pyspark
+- Visualisation : Google Data Studio
+
+## About the Project
+
+Github Archive data is ingested daily into the AWS S3 buckets from 1st of May.
+A Spark job is run on the data stored in the S3 bucket using AWS ElasticMapReduce (EMR)
+The results are written to a table defined in Redshift.
+A dashboard is created from the Redshift tables.
+
+## Dashboard
+
+## Reproducibility
+
+
