@@ -77,5 +77,40 @@ Check pgadmin :
  ![image](https://github.com/garjita63/retailrocket-ecommerce-batch/assets/77673886/e78fc04d-9055-4aeb-ac27-5b877a99e1ec)
 
 
+jupyter notebook --generate-config
+
+/home/smrhitam/.jupyter/jupyter_notebook_config.py
+
+![image](https://github.com/garjita63/retailrocket-ecommerce-batch/assets/77673886/2464f7a3-aad7-4514-add2-412e36321bff)
+
+hdfs dfs -mkdir /user/smrhitam
+
+hdfs dfs -copyFromLocal  ecommerce-dataset/ /user/smrhitam
+
+kaggle key jason
+```
+import os
+import json
+
+# Define the content of the kaggle.json file
+data = {
+    "username": "ketutgarjita",
+    "key": "105b7cfe0e35251e4f61267478ae09f3"
+}
+
+# Convert the data to a JSON string
+json_string = json.dumps(data)
+
+# Put the JSON string into the /home/src
+file1 = open('/home/src/kaggle.json', 'w')
+file1.write(json_string)
+file1.close()
+
+# Set appropriate permissions on the kaggle.json file
+os.system("chmod 600 /home/src/kaggle.json")
+```
 
 
+
+
+/home/smrhitam/.jupyter/jupyter_notebook_config.py
