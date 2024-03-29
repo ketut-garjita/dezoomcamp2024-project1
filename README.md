@@ -35,4 +35,40 @@ A dashboard is created from the Redshift tables.
 
 ## Reproducibility
 
+After terrafor apply:
+
+![image](https://github.com/garjita63/retailrocket-ecommerce-batch/assets/77673886/328db997-ca2e-4589-be7b-55b91a3e5f9e)
+
+![image](https://github.com/garjita63/retailrocket-ecommerce-batch/assets/77673886/b0b4c8b8-84bb-40fa-bdde-cd1a517ba399)
+
+![image](https://github.com/garjita63/retailrocket-ecommerce-batch/assets/77673886/b2ab4aaf-24db-49cc-9d35-c828777bb4e3)
+
+![image](https://github.com/garjita63/retailrocket-ecommerce-batch/assets/77673886/096daaa8-c50d-44bf-8dcb-c6f0b9e30b9b)
+
+Assign the new external IP address to the VM.
+- gcloud compute instances add-access-config project1-dataproc-m --access-config-name="project1-dataproc-m-config"
+- gcloud compute instances add-access-config project1-dataproc-w-0 --access-config-name="project1-dataproc-m-config"
+- gcloud compute instances add-access-config project1-dataproc-w-1 --access-config-name="project1-dataproc-m-config"
+
+  
+Copy execute-shell.sh into bucket
+
+gsutil cp repositories.sh gs://semar-bucket
+
+gsutil cp gs://semar-bucket/repositories.sh .
+
+chmod +x repositories.sh
+
+sudo ./repositories.sh
+
+Check mage :
+
+![image](https://github.com/garjita63/retailrocket-ecommerce-batch/assets/77673886/b3906b1d-0b46-4166-af52-525f86b60a0c)
+
+Check pgadmin :
+
+![image](https://github.com/garjita63/retailrocket-ecommerce-batch/assets/77673886/03991861-af32-4840-9d9d-d06f476da686)
+
+
+
 
