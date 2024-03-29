@@ -53,6 +53,9 @@ Assign the new external IP address to the VM.
   
 Copy execute-shell.sh into bucket
 
+Lohin via ssh of master vm:
+![image](https://github.com/garjita63/retailrocket-ecommerce-batch/assets/77673886/1c59d592-e8ed-45dd-9149-30327885463d)
+
 gsutil cp repositories.sh gs://semar-bucket
 
 gsutil cp gs://semar-bucket/repositories.sh .
@@ -68,6 +71,10 @@ Check mage :
 Check pgadmin :
 
 ![image](https://github.com/garjita63/retailrocket-ecommerce-batch/assets/77673886/03991861-af32-4840-9d9d-d06f476da686)
+
+ jupyter-notebook --no-browser --port=8888 --ip=0.0.0.0
+
+ ![image](https://github.com/garjita63/retailrocket-ecommerce-batch/assets/77673886/e78fc04d-9055-4aeb-ac27-5b877a99e1ec)
 
 
 
