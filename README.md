@@ -110,6 +110,7 @@ file1.close()
 os.system("chmod 600 /home/src/kaggle.json")
 ```
 
+![image](https://github.com/garjita63/retailrocket-ecommerce-batch/assets/77673886/160d7dfe-0ef3-4cf9-9cf4-8d01684603bb)
 
 
 
