@@ -20,18 +20,21 @@ The behaviour data, i.e. events like clicks, add to carts, transactions, represe
 - Cloud : GCP
 - Infrastructure as code (IaC) : Terraform
 - Workflow orchestration : Mage-ai
-- Data Wareshouse : BigQuery
+- Data Warehouse : BigQuery
 - Batch processing : pyspark
-- Visualisation : Google Data Studio
+- Visualisation : Google Looker Studio
 
 ## About the Project
 
-Github Archive data is ingested daily into the AWS S3 buckets from 1st of May.
-A Spark job is run on the data stored in the S3 bucket using AWS ElasticMapReduce (EMR)
-The results are written to a table defined in Redshift.
-A dashboard is created from the Redshift tables.
+Kaggle dataset is downloaded into the Google VM, then ingested to Google Cloud Storage Buecket as Data Lake. Next, the data will be stored in BigQuery as a Data Warehouse. All data flows are executed using the Mage-ai workflow orchestration tool. A Spark job is run on the data stored in the Google Storage Buecket or in BigQuery.
+The results are written to a dafaframe and/or table in Postgres. A dashboard is created from the Looker Studio.
 
 ## Dashboard
+
+![locker-studio2](https://github.com/garjita63/retailrocket-ecommerce-batch/assets/77673886/73839329-bb0a-426e-bb95-44da5718504c)
+
+![locker-studio1](https://github.com/garjita63/retailrocket-ecommerce-batch/assets/77673886/4ca8c142-1f90-4514-ab90-f5241f04f6ef)
+
 
 ## Reproducibility
 
