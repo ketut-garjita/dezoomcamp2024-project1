@@ -72,7 +72,7 @@ Check pgadmin :
 
 ![image](https://github.com/garjita63/retailrocket-ecommerce-batch/assets/77673886/03991861-af32-4840-9d9d-d06f476da686)
 
- jupyter-notebook --no-browser --port=8888 --ip=0.0.0.0
+ jupyter-notebook  --port=8888 --ip=0.0.0.0 --no-browser
 
  ![image](https://github.com/garjita63/retailrocket-ecommerce-batch/assets/77673886/e78fc04d-9055-4aeb-ac27-5b877a99e1ec)
 
