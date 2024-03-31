@@ -76,18 +76,16 @@ You can find the detailed Architecture on the diagram below:
 - Initializing Terraform
   -- Under terraform folder, create files main.tf (required) and variables.tf (optional) to store terraform varaibels
   -- Define contents of both tf files
-  -- In this project set up the following parts
-    --- Google Provider Versions
-    --- resource "google_service_account"
-    --- resource "google_project_iam_member" 
-    --- resource "google_compute_firewall"
-    --- resource "google_storage_bucket"
-    --- resource "google_storage_bucket_iam_member"
-    --- resource "google_bigquery_dataset"
-    --- resource "google_dataproc_cluster"
-        ---- cluster_config
-          ----- master_config
-          ----- worker_config 
+- main.td contents
+  -- Google Provider Versions
+  -- resource "google_service_account"
+  -- resource "google_project_iam_member" 
+  -- resource "google_compute_firewall"
+  -- resource "google_storage_bucket"
+  -- resource "google_storage_bucket_iam_member"
+  -- resource "google_bigquery_dataset"
+  -- resource "google_dataproc_cluster" (cluster_config : master_config, worker_config, software_config : image_version = "2.2.10-debian12"
+      optional_components   = ["DOCKER", "JUPYTER"])
   
 
 terraform init
