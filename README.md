@@ -1,7 +1,10 @@
-# retailrocket-ecommerce-batch
-This repository contains a brief description of my DE Zoomcamp Project 1.
+# DE Zoomcamp 2024 - Project1 
+retailrocket-ecommerce-batch
+This repository contains a brief description of my DE Zoomcamp 2024 Project 1
 
 ## Problem statement
+
+The Retailrocket t has collected a large dataset of E-commerce i.e  a file with behaviour data (events.csv), a file with item properties (item_properties.сsv) and a file, which describes category tree (category_tree.сsv). The data has been collected from a real-world ecommerce website. It is raw data, i.e. without any content transformations, however, all values are hashed due to confidential issues. The purpose of publishing is to motivate researches in the field of recommender systems with implicit feedback.  The goal of this project is to create a streamlined and efficient process for analyzing e-commerce by implementing Data Engineering process flows basics.
 
 ## About the Dataset
 [Retailrocket recommender system](https://www.kaggle.com/datasets/retailrocket/ecommerce-dataset) 
@@ -22,12 +25,75 @@ The behaviour data, i.e. events like clicks, add to carts, transactions, represe
 - Workflow orchestration : Mage-ai
 - Data Warehouse : BigQuery
 - Batch processing : pyspark
+- IDE : VS Code, Jupyter Notebook
+- Language : Python
 - Visualisation : Google Looker Studio
 
-## About the Project
+## Project Architecture
 
 Kaggle dataset is downloaded into the Google VM, then ingested to Google Cloud Storage Buecket as Data Lake. Next, the data will be stored in BigQuery as a Data Warehouse. All data flows are executed using the Mage-ai workflow orchestration tool. A Spark job is run on the data stored in the Google Storage Buecket or in BigQuery.
 The results are written to a dafaframe and/or table in Postgres. A dashboard is created from the Looker Studio.
+
+The end-to-end data pipeline includes the below steps:
+- Kaggle dataset is downloaded into the Google VM
+- The downloaded CSV files (raw) are then uploaded to a folder in Google Cloud bucket (parquet) as Data Like
+- Next, the data will be stored in BigQuery as a Data Warehouse
+- A new table is created from this original table with correct data types as well as partitioned by Month and Clustered by type of event for optimised performance
+- Spin up a dataproc clusters (amster and worker) and execute the pyspark jobs for procusts analys purposes
+- Configure Google Looker Studio to power dashboards from BigQuery Data Warehouse tables
+
+You can find the detailed Architecture on the diagram below:
+
+![image](https://github.com/garjita63/retailrocket-ecommerce-batch/assets/77673886/160d7dfe-0ef3-4cf9-9cf4-8d01684603bb)
+
+
+## Reproducing from Scratch
+
+### Setup GCP
+- Create GCP Account.
+- Setup New Project and write down your Project ID.
+- Configure service account to get access to the project and download auth-keys (.json). Change auth-keys name if required.
+  Please provide the service account the permissions below:
+  -- BigQuery Admin
+  -- Cloud SQL Client
+  -- Compute Admin
+  -- Compute Engine Service Agent
+  -- Compute Network Admin
+  -- Compute Storage Admin
+  -- Dataproc Service Agent
+  -- Editor
+  -- Logs Bucket Writer
+  -- Owner
+  -- Storage Admin
+  -- Storage Object Admin
+- Enable the following options under the APIs and services section:
+  -- Identity and Access Management (IAM) API
+  -- IAM service account credentials API
+  -- Compute Engine API (if you are going to use VM instance)
+
+### Terraform as Internet as Code (IaC) to build infrastructure
+- Download Terraform from here: [https://www.terraform.io/downloads](https://www.terraform.io/downloads)
+- Initializing Terraform
+  -- Under terraform folder, create files main.tf (required) and variables.tf (optional) to store terraform varaibels
+  -- Define contents of both tf files
+  -- In this project set up the following parts
+    --- Google Provider Versions
+    --- resource "google_service_account"
+    --- resource "google_project_iam_member" 
+    --- resource "google_compute_firewall"
+    --- resource "google_storage_bucket"
+    --- resource "google_storage_bucket_iam_member"
+    --- resource "google_bigquery_dataset"
+    --- resource "google_dataproc_cluster"
+        ---- cluster_config
+          ----- master_config
+          ----- worker_config 
+  
+
+terraform init
+terraform plan
+terraform apply
+If you would like to remove your stack from the Cloud, use the terraform destroy command.
 
 ## Dashboard
 
@@ -113,7 +179,7 @@ file1.close()
 os.system("chmod 600 /home/src/kaggle.json")
 ```
 
-![image](https://github.com/garjita63/retailrocket-ecommerce-batch/assets/77673886/160d7dfe-0ef3-4cf9-9cf4-8d01684603bb)
+
 
 
 
