@@ -212,7 +212,7 @@ After terrafor apply done :
   jupyter-notebook  --port=8888 --ip=0.0.0.0 --no-browser
   ```
 
- ![image](https://github.com/garjita63/retailrocket-ecommerce-batch/assets/77673886/e78fc04d-9055-4aeb-ac27-5b877a99e1ec)
+   ![image](https://github.com/garjita63/retailrocket-ecommerce-batch/assets/77673886/e78fc04d-9055-4aeb-ac27-5b877a99e1ec)
 
 - Increase memory size for cluster if required
 
