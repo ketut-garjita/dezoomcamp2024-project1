@@ -252,6 +252,28 @@ After terrafor apply done :
   Login to Web Worker Cluster
    
 
+## Mage-ai orchestration pipelines
+
+![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/c3714049-6cdb-4f30-b92a-82c4cd4c7ca3)
+
+![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/ce3c86ad-8ea1-4d4a-9ddc-408c699a274e)
+
+![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/1c5ac741-fe18-4ee4-9549-88c7394283e7)
+
+![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/bcfbb92a-b40c-428e-af62-b0111ea96d76)
+
+![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/c157df89-d5e8-429a-855a-29c4c405ba97)
+
+![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/029017d9-47bd-4d80-9e3f-150bba1940c6)
+
+![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/47adf1f5-edde-4a62-bd77-e286cfea6627)
+
+![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/80b44ef7-4d79-4248-87a2-88e5432683f1)
+
+![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/3ed735e6-f0c0-466a-b96a-b3aa4babdefc)
+
+![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/90178e95-4e8a-4d0c-86e2-5e121df462d0)
+
 
 ## Dashboard
 
