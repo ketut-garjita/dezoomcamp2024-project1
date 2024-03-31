@@ -104,7 +104,9 @@ After terrafor apply done :
 
 You can use either Console or gcloud :
 
-Console :
+**Console** :
+
+From VM Instance (Compute Engine) - SSH
 
 ![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/2d4ff3e3-a28a-4739-a17c-39d64ae4683e)
 
@@ -117,7 +119,7 @@ Console :
 ![image](https://github.com/garjita63/retailrocket-ecommerce-batch/assets/77673886/096daaa8-c50d-44bf-8dcb-c6f0b9e30b9b)
 
 
-gloud :
+**gloud shell** (local or cloud) :
 ```
 gcloud compute instances add-access-config <master cluster> --access-config-name="project1-dataproc-m-config"
 gcloud compute instances add-access-config <worker cluster 0> --access-config-name="project1-dataproc-m-config"
@@ -205,17 +207,23 @@ jupyter-notebook  --port=8888 --ip=0.0.0.0 --no-browser
  ![image](https://github.com/garjita63/retailrocket-ecommerce-batch/assets/77673886/e78fc04d-9055-4aeb-ac27-5b877a99e1ec)
 
 
-jupyter notebook --generate-config
+- Increase memory size for cluster if required
 
+  ```
+  jupyter notebook --generate-config
+  ```
+  
 Open /home/smrhitam/.jupyter/jupyter_notebook_config.py 
 
 Modify the
 ![image](https://github.com/garjita63/retailrocket-ecommerce-batch/assets/77673886/2464f7a3-aad7-4514-add2-412e36321bff)
 
-hdfs dfs -mkdir /user/smrhitam
-
-hdfs dfs -copyFromLocal  ecommerce-dataset/ /user/smrhitam
-
+- Try run spark by using dataset on hdfs
+  ```
+  hdfs dfs -mkdir /user/smrhitam
+  hdfs dfs -copyFromLocal  ecommerce-dataset/ /user/s<some folder>
+  ```
+  
 
 ## Dashboard
 
