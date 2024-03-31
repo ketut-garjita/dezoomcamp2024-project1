@@ -39,7 +39,7 @@ The end-to-end data pipeline includes the below steps:
 - The downloaded CSV files (raw) are then uploaded to a folder in Google Cloud bucket (parquet) as Data Like
 - Next, the data will be stored in BigQuery as a Data Warehouse
 - A new table is created from this original table with correct data types as well as partitioned by Month and Clustered by type of event for optimised performance
-- Spin up a dataproc clusters (masterand worker) and execute the pyspark jobs for procusts analys purposes
+- Spin up a dataproc clusters (master and worker) and execute the pyspark jobs for procusts analys purposes
 - Configure Google Looker Studio to power dashboards from BigQuery Data Warehouse tables
 
 You can find the detailed Architecture on the diagram below:
@@ -225,14 +225,14 @@ Open /home/smrhitam/.jupyter/jupyter_notebook_config.py
 Modify the
 ![image](https://github.com/garjita63/retailrocket-ecommerce-batch/assets/77673886/2464f7a3-aad7-4514-add2-412e36321bff)
 
-- Spark masterand worker clusters
+- Spark master and worker clusters
 
   Edit ~/.bashrc fileand add lines below:
   ```
   export SPATH=$SPARK_HOME/bin:$SPARK/sbin:$PATH
   ```
 
-  Start masterand worker clusters
+  Start master and worker clusters
   ```
   start-all.sh
   ```
