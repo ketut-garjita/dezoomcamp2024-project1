@@ -70,14 +70,17 @@ You can find the detailed Architecture on the diagram below:
   ```
       
 - Enable the following options under the APIs and services section:
+  ```
   1. Identity and Access Management (IAM) API
   2. IAM service account credentials API
   3. Compute Engine API (if you are going to use VM instance)
-
+  ```
+  
 ### Terraform as Internet as Code (IaC) to build infrastructure
 - Download Terraform from here: [https://www.terraform.io/downloads](https://www.terraform.io/downloads)
 - Under terraform folder, create files main.tf (required) and variables.tf (optional) to store terraform varaibels
 - main.td contents
+  ```
   1. Google Provider Versions
   2. resource "google_service_account"
   3. resource "google_project_iam_member"
@@ -87,10 +90,9 @@ You can find the detailed Architecture on the diagram below:
   7. resource "google_bigquery_dataset"
   8. resource "google_dataproc_cluster" (cluster_config : master_config, worker_config, software_config : image_version = "2.2.10-debian12"
       optional_components   = ["DOCKER", "JUPYTER"])
-  
-
-terraform init
-terraform plan
+  ```
+- terraform init : command initializes the directory, downloads, teh necesary plugins for the cinfigured provider, and prepares for use.
+- terraform plan
 terraform apply
 If you would like to remove your stack from the Cloud, use the terraform destroy command.
 
