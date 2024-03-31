@@ -44,7 +44,7 @@ The end-to-end data pipeline includes the below steps:
 
 You can find the detailed Architecture on the diagram below:
 
-![image](https://github.com/garjita63/retailrocket-ecommerce-batch/assets/77673886/160d7dfe-0ef3-4cf9-9cf4-8d01684603bb)
+![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/ef363cea-67c7-4a10-9dc7-0516dab7008d)
 
 
 ## Reproducing from Scratch
@@ -78,7 +78,7 @@ You can find the detailed Architecture on the diagram below:
   
 ### Terraform as Internet as Code (IaC) to build infrastructure
 - Download Terraform from here: [https://www.terraform.io/downloads](https://www.terraform.io/downloads)
-- Under terraform folder, create files main.tf (required) and variables.tf (optional) to store terraform varaibels
+- Under terraform folder, create files **main.tf** (required) and **variables.tf** (optional) to store terraform variables. 
 - main.td contents
   ```
   1. Google Provider Versions
@@ -92,9 +92,87 @@ You can find the detailed Architecture on the diagram below:
       optional_components   = ["DOCKER", "JUPYTER"])
   ```
 - terraform init : command initializes the directory, downloads, teh necesary plugins for the cinfigured provider, and prepares for use.
-- terraform plan
-terraform apply
+- terraform plan : too see execution plan
+- erraform apply : to apply the changes
+  
 If you would like to remove your stack from the Cloud, use the terraform destroy command.
+
+## Assign External IP Address for Master and Workers Clusters
+
+From Console :
+
+![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/b67244eb-3b31-4f7d-ada6-76f261ba1887)
+
+Or from gloud :
+```
+gcloud compute instances add-access-config <master cluster> --access-config-name="project1-dataproc-m-config"
+gcloud compute instances add-access-config <worker cluster 0> --access-config-name="project1-dataproc-m-config"
+gcloud compute instances add-access-config <worker cluster 0> --access-config-name="project1-dataproc-m-config"
+```
+
+*Provide master and worker cluster names.*
+
+
+## Set up Mage-ai, PostgreSQL and pgAdmin through Master SSH
+
+Execute the following shell script (**repositories.sh**):
+```
+#############Install Docker network#############
+#create a network most containers will use
+sudo docker network create dockernet >> /root/dockernet.log
+sudo docker network ls >> /root/dockernet.log
+
+
+#############Bring up docker containers############
+cat > /root/docker-compose.yml <<- "SCRIPT"
+
+version: '3'
+services:
+  magic:
+    image: mageai/mageai:latest
+    command: mage start dezoomcamp
+    container_name: dezoomcamp-mage
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      USER_CODE_PATH: /home/src/dezoomcamp
+      POSTGRES_DBNAME: dezoomcampdb
+      POSTGRES_SCHEMA: public
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres316
+      POSTGRES_HOST: vm-ikg-dezoomcamp
+      POSTGRES_PORT: 5432
+    ports:
+      - 6789:6789
+    volumes:
+      - .:/home/src/
+      - /root/.google/credentials/key-ikg-dezoomcamp-2024.json
+    restart: on-failure:5
+  postgres:
+    image: postgres:14
+    restart: on-failure
+    container_name: dezoomcamp-postgres
+    environment:
+      POSTGRES_DB: dezoomcampdb
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres316
+    ports:
+      - 5432:5432
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: dezoomcamp-pgadmin
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=admin@admin.com
+      - PGADMIN_DEFAULT_PASSWORD=root
+    ports:
+      - 8080:80
+      
+SCRIPT
+
+sudo docker compose -f /root/docker-compose.yml up -d
+```
+
 
 ## Dashboard
 
