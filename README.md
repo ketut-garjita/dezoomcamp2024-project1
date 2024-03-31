@@ -53,38 +53,37 @@ You can find the detailed Architecture on the diagram below:
 - Create GCP Account.
 - Setup New Project and write down your Project ID.
 - Configure service account to get access to the project and download auth-keys (.json). Change auth-keys name if required.
-  Please provide the service account the permissions below:
-  -- BigQuery Admin
-  -- Cloud SQL Client
-  -- Compute Admin
-  -- Compute Engine Service Agent
-  -- Compute Network Admin
-  -- Compute Storage Admin
-  -- Dataproc Service Agent
-  -- Editor
-  -- Logs Bucket Writer
-  -- Owner
-  -- Storage Admin
-  -- Storage Object Admin
+  Please provide the service account the permissions below (*sorted by name*):
+  1. BigQuery Admin
+  2. Cloud SQL Client
+  3. Compute Admin
+  4. Compute Engine Service Agent
+  5. Compute Network Admin
+  6. Compute Storage Admin
+  7. Dataproc Service Agent
+  8. Editor
+  9. Logs Bucket Writer
+  10. Owner
+  11. Storage Admin
+  12. Storage Object Admin
+      
 - Enable the following options under the APIs and services section:
-  -- Identity and Access Management (IAM) API
-  -- IAM service account credentials API
-  -- Compute Engine API (if you are going to use VM instance)
+  1. Identity and Access Management (IAM) API
+  2. IAM service account credentials API
+  3. Compute Engine API (if you are going to use VM instance)
 
 ### Terraform as Internet as Code (IaC) to build infrastructure
 - Download Terraform from here: [https://www.terraform.io/downloads](https://www.terraform.io/downloads)
-- Initializing Terraform
-  -- Under terraform folder, create files main.tf (required) and variables.tf (optional) to store terraform varaibels
-  -- Define contents of both tf files
+- Under terraform folder, create files main.tf (required) and variables.tf (optional) to store terraform varaibels
 - main.td contents
-  -- Google Provider Versions
-  -- resource "google_service_account"
-  -- resource "google_project_iam_member" 
-  -- resource "google_compute_firewall"
-  -- resource "google_storage_bucket"
-  -- resource "google_storage_bucket_iam_member"
-  -- resource "google_bigquery_dataset"
-  -- resource "google_dataproc_cluster" (cluster_config : master_config, worker_config, software_config : image_version = "2.2.10-debian12"
+  1. Google Provider Versions
+  2. resource "google_service_account"
+  3. resource "google_project_iam_member"
+  4. resource "google_compute_firewall"
+  5. resource "google_storage_bucket"
+  6. resource "google_storage_bucket_iam_member"
+  7. resource "google_bigquery_dataset"
+  8. resource "google_dataproc_cluster" (cluster_config : master_config, worker_config, software_config : image_version = "2.2.10-debian12"
       optional_components   = ["DOCKER", "JUPYTER"])
   
 
