@@ -92,7 +92,7 @@ You can find the detailed Architecture on the diagram below:
   8. resource "google_dataproc_cluster" (cluster_config : master_config, worker_config, software_config : image_version = "2.2.10-debian12"
       optional_components   = ["DOCKER", "JUPYTER"])
   ```
-- **terraform init** : command initializes the directory, downloads, teh necesary plugins for the cinfigured provider, and prepares for use.
+- **terraform init** or **terraform init -upgrade**: command initializes the directory, downloads, teh necesary plugins for the cinfigured provider, and prepares for use.
 - **terraform plan** : too see execution plan
 - **terraform apply** : to apply the changes
   
