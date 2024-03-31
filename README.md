@@ -97,13 +97,27 @@ You can find the detailed Architecture on the diagram below:
   
 If you would like to remove your stack from the Cloud, use the terraform destroy command.
 
-## Assign External IP Address for Master and Workers Clusters
+## Reproducibility
 
-From Console :
+After terrafor apply done :
+- Assign External IP Address for Master and Workers Clusters
+
+You can use either Console or gcloud :
+
+Console :
+
+![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/2d4ff3e3-a28a-4739-a17c-39d64ae4683e)
 
 ![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/b67244eb-3b31-4f7d-ada6-76f261ba1887)
 
-Or from gloud :
+![image](https://github.com/garjita63/retailrocket-ecommerce-batch/assets/77673886/b0b4c8b8-84bb-40fa-bdde-cd1a517ba399)
+
+![image](https://github.com/garjita63/retailrocket-ecommerce-batch/assets/77673886/b2ab4aaf-24db-49cc-9d35-c828777bb4e3)
+
+![image](https://github.com/garjita63/retailrocket-ecommerce-batch/assets/77673886/096daaa8-c50d-44bf-8dcb-c6f0b9e30b9b)
+
+
+gloud :
 ```
 gcloud compute instances add-access-config <master cluster> --access-config-name="project1-dataproc-m-config"
 gcloud compute instances add-access-config <worker cluster 0> --access-config-name="project1-dataproc-m-config"
@@ -112,105 +126,71 @@ gcloud compute instances add-access-config <worker cluster 0> --access-config-na
 
 *Provide master and worker cluster names.*
 
+- Set up Mage-ai, PostgreSQL and pgAdmin through Master SSH.
 
-## Set up Mage-ai, PostgreSQL and pgAdmin through Master SSH
-
-Execute the following shell script (**repositories.sh**):
-```
-#############Install Docker network#############
-#create a network most containers will use
-sudo docker network create dockernet >> /root/dockernet.log
-sudo docker network ls >> /root/dockernet.log
-
-
-#############Bring up docker containers############
-cat > /root/docker-compose.yml <<- "SCRIPT"
-
-version: '3'
-services:
-  magic:
-    image: mageai/mageai:latest
-    command: mage start dezoomcamp
-    container_name: dezoomcamp-mage
-    build:
-      context: .
-      dockerfile: Dockerfile
-    environment:
-      USER_CODE_PATH: /home/src/dezoomcamp
-      POSTGRES_DBNAME: dezoomcampdb
-      POSTGRES_SCHEMA: public
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres316
-      POSTGRES_HOST: vm-ikg-dezoomcamp
-      POSTGRES_PORT: 5432
-    ports:
-      - 6789:6789
-    volumes:
-      - .:/home/src/
-      - /root/.google/credentials/key-ikg-dezoomcamp-2024.json
-    restart: on-failure:5
-  postgres:
-    image: postgres:14
-    restart: on-failure
-    container_name: dezoomcamp-postgres
-    environment:
-      POSTGRES_DB: dezoomcampdb
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres316
-    ports:
-      - 5432:5432
-  pgadmin:
-    image: dpage/pgadmin4
-    container_name: dezoomcamp-pgadmin
-    environment:
-      - PGADMIN_DEFAULT_EMAIL=admin@admin.com
-      - PGADMIN_DEFAULT_PASSWORD=root
-    ports:
-      - 8080:80
-      
-SCRIPT
-
-sudo docker compose -f /root/docker-compose.yml up -d
-```
-
-
-## Dashboard
-
-![locker-studio2](https://github.com/garjita63/retailrocket-ecommerce-batch/assets/77673886/73839329-bb0a-426e-bb95-44da5718504c)
-
-![locker-studio1](https://github.com/garjita63/retailrocket-ecommerce-batch/assets/77673886/4ca8c142-1f90-4514-ab90-f5241f04f6ef)
-
-
-## Reproducibility
-
-After terrafor apply:
-
-![image](https://github.com/garjita63/retailrocket-ecommerce-batch/assets/77673886/328db997-ca2e-4589-be7b-55b91a3e5f9e)
-
-![image](https://github.com/garjita63/retailrocket-ecommerce-batch/assets/77673886/b0b4c8b8-84bb-40fa-bdde-cd1a517ba399)
-
-![image](https://github.com/garjita63/retailrocket-ecommerce-batch/assets/77673886/b2ab4aaf-24db-49cc-9d35-c828777bb4e3)
-
-![image](https://github.com/garjita63/retailrocket-ecommerce-batch/assets/77673886/096daaa8-c50d-44bf-8dcb-c6f0b9e30b9b)
-
-Assign the new external IP address to the VM.
-- gcloud compute instances add-access-config project1-dataproc-m --access-config-name="project1-dataproc-m-config"
-- gcloud compute instances add-access-config project1-dataproc-w-0 --access-config-name="project1-dataproc-m-config"
-- gcloud compute instances add-access-config project1-dataproc-w-1 --access-config-name="project1-dataproc-m-config"
-
+  Copy repsistories.sh into VM. repsistories.sh is script for installing docker network and bring up docker containers of Mage-ai, postgresql and pgAdmin. .
+  ```
+  #############Install Docker network#############
+  #create a network most containers will use
+  sudo docker network create dockernet >> /root/dockernet.log
+  sudo docker network ls >> /root/dockernet.log
   
-Copy execute-shell.sh into bucket
+  #############Bring up docker containers############
+  cat > /root/docker-compose.yml <<- "SCRIPT"
+  
+  version: '3'
+  services:
+    magic:
+      image: mageai/mageai:latest
+      command: mage start dezoomcamp
+      container_name: dezoomcamp-mage
+      build:
+        context: .
+        dockerfile: Dockerfile
+      environment:
+        USER_CODE_PATH: /home/src/dezoomcamp
+        POSTGRES_DBNAME: dezoomcampdb
+        POSTGRES_SCHEMA: public
+        POSTGRES_USER: postgres
+        POSTGRES_PASSWORD: postgres316
+        POSTGRES_HOST: vm-ikg-dezoomcamp
+        POSTGRES_PORT: 5432
+      ports:
+        - 6789:6789
+      volumes:
+        - .:/home/src/
+        - /root/.google/credentials/key-ikg-dezoomcamp-2024.json
+      restart: on-failure:5
+    postgres:
+      image: postgres:14
+      restart: on-failure
+      container_name: dezoomcamp-postgres
+      environment:
+        POSTGRES_DB: dezoomcampdb
+        POSTGRES_USER: postgres
+        POSTGRES_PASSWORD: postgres316
+      ports:
+        - 5432:5432
+    pgadmin:
+      image: dpage/pgadmin4
+      container_name: dezoomcamp-pgadmin
+      environment:
+        - PGADMIN_DEFAULT_EMAIL=admin@admin.com
+        - PGADMIN_DEFAULT_PASSWORD=root
+      ports:
+        - 8080:80
+        
+  SCRIPT
+  
+  sudo docker compose -f /root/docker-compose.yml up -d
+  ```
 
-Lohin via ssh of master vm:
-![image](https://github.com/garjita63/retailrocket-ecommerce-batch/assets/77673886/1c59d592-e8ed-45dd-9149-30327885463d)
+  chmod +x repositories.sh
 
-gsutil cp repositories.sh gs://semar-bucket
+  sudo ./repositories.sh
 
-gsutil cp gs://semar-bucket/repositories.sh .
+  ==> Mage-ai, postgresql and pgAdmin would be installed and running.
 
-chmod +x repositories.sh
-
-sudo ./repositories.sh
 
 Check mage :
 
@@ -220,46 +200,26 @@ Check pgadmin :
 
 ![image](https://github.com/garjita63/retailrocket-ecommerce-batch/assets/77673886/03991861-af32-4840-9d9d-d06f476da686)
 
- jupyter-notebook  --port=8888 --ip=0.0.0.0 --no-browser
+jupyter-notebook  --port=8888 --ip=0.0.0.0 --no-browser
 
  ![image](https://github.com/garjita63/retailrocket-ecommerce-batch/assets/77673886/e78fc04d-9055-4aeb-ac27-5b877a99e1ec)
 
 
 jupyter notebook --generate-config
 
-/home/smrhitam/.jupyter/jupyter_notebook_config.py
+Open /home/smrhitam/.jupyter/jupyter_notebook_config.py 
 
+Modify the
 ![image](https://github.com/garjita63/retailrocket-ecommerce-batch/assets/77673886/2464f7a3-aad7-4514-add2-412e36321bff)
 
 hdfs dfs -mkdir /user/smrhitam
 
 hdfs dfs -copyFromLocal  ecommerce-dataset/ /user/smrhitam
 
-kaggle key jason
-```
-import os
-import json
 
-# Define the content of the kaggle.json file
-data = {
-    "username": "ketutgarjita",
-    "key": "105b7cfe0e35251e4f61267478ae09f3"
-}
+## Dashboard
 
-# Convert the data to a JSON string
-json_string = json.dumps(data)
+![locker-studio2](https://github.com/garjita63/retailrocket-ecommerce-batch/assets/77673886/73839329-bb0a-426e-bb95-44da5718504c)
 
-# Put the JSON string into the /home/src
-file1 = open('/home/src/kaggle.json', 'w')
-file1.write(json_string)
-file1.close()
+![locker-studio1](https://github.com/garjita63/retailrocket-ecommerce-batch/assets/77673886/4ca8c142-1f90-4514-ab90-f5241f04f6ef)
 
-# Set appropriate permissions on the kaggle.json file
-os.system("chmod 600 /home/src/kaggle.json")
-```
-
-
-
-
-
-/home/smrhitam/.jupyter/jupyter_notebook_config.py
