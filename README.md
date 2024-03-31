@@ -274,6 +274,14 @@ After terrafor apply done :
 
 ![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/90178e95-4e8a-4d0c-86e2-5e121df462d0)
 
+![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/dec77702-674a-4895-8413-77f3e490c637)
+
+![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/0cf02751-3185-41eb-a33b-f7dd70677b31)
+
+![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/38533740-1186-4294-9110-2718203ec87c)
+
+![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/a2619916-42f3-4c6d-919b-69c7a652a718)
+
 
 ## Dashboard
 
