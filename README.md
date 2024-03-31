@@ -76,6 +76,7 @@ You can find the detailed Architecture on the diagram below:
   3. Compute Engine API (if you are going to use VM instance)
   ```
   
+
 ### Terraform as Internet as Code (IaC) to build infrastructure
 - Download Terraform from here: [https://www.terraform.io/downloads](https://www.terraform.io/downloads)
 - Under terraform folder, create files **main.tf** (required) and **variables.tf** (optional) to store terraform variables. 
@@ -97,12 +98,12 @@ You can find the detailed Architecture on the diagram below:
   
 If you would like to remove your stack from the Cloud, use the terraform destroy command.
 
-## Reproducibility
+
+### Reproducibility
 
 After terrafor apply done :
-- Assign External IP Address for Master and Workers Clusters
 
-You can use either Console or gcloud :
+- Assign External IP Address for Master and Workers Clusters. You can use either Console or gcloud :
 
 **Console** :
 
@@ -117,7 +118,6 @@ From VM Instance (Compute Engine) - SSH
 ![image](https://github.com/garjita63/retailrocket-ecommerce-batch/assets/77673886/b2ab4aaf-24db-49cc-9d35-c828777bb4e3)
 
 ![image](https://github.com/garjita63/retailrocket-ecommerce-batch/assets/77673886/096daaa8-c50d-44bf-8dcb-c6f0b9e30b9b)
-
 
 **gloud shell** (local or cloud) :
 ```
@@ -191,7 +191,7 @@ gcloud compute instances add-access-config <worker cluster 0> --access-config-na
 
   sudo ./repositories.sh
 
-  ==> Mage-ai, postgresql and pgAdmin would be installed and running.
+  ==> *Mage-ai, postgresql and pgAdmin would be installed and up running.*
 
 
 Check mage :
@@ -202,10 +202,17 @@ Check pgadmin :
 
 ![image](https://github.com/garjita63/retailrocket-ecommerce-batch/assets/77673886/03991861-af32-4840-9d9d-d06f476da686)
 
+Stop jupyter notebook
+```
+sudo systemctl stop jupyter
+```
+
+Restart Jupyter by using script below
+```
 jupyter-notebook  --port=8888 --ip=0.0.0.0 --no-browser
+```
 
  ![image](https://github.com/garjita63/retailrocket-ecommerce-batch/assets/77673886/e78fc04d-9055-4aeb-ac27-5b877a99e1ec)
-
 
 - Increase memory size for cluster if required
 
@@ -218,12 +225,32 @@ Open /home/smrhitam/.jupyter/jupyter_notebook_config.py
 Modify the
 ![image](https://github.com/garjita63/retailrocket-ecommerce-batch/assets/77673886/2464f7a3-aad7-4514-add2-412e36321bff)
 
-- Try run spark by using dataset on hdfs
+- Spark amster and worker clusters
+
+  Edit ~/.bashrc fileand add lines below:
+  ```
+  export SPATH=$SPARK_HOME/bin:$SPARK/sbin:$PATH
+  ```
+
+  Start amster and worker clusters
+  ```
+  start-all.sh
+  ```
+
+  Try run spark by using dataset on hdfs
+
+  Copy dataset folder into /user/<some folder>
   ```
   hdfs dfs -mkdir /user/smrhitam
   hdfs dfs -copyFromLocal  ecommerce-dataset/ /user/s<some folder>
   ```
-  
+
+  Login to Web Master Cluster
+
+
+  Login to Web Worker Cluster
+   
+
 
 ## Dashboard
 
