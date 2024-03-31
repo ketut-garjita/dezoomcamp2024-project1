@@ -1,5 +1,5 @@
 # DE Zoomcamp 2024 - Project1 
-retailrocket-ecommerce-batch
+
 This repository contains a brief description of my DE Zoomcamp 2024 Project 1
 
 ## Problem statement
