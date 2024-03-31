@@ -202,8 +202,6 @@ After terrafor apply done :
   
   ![image](https://github.com/garjita63/retailrocket-ecommerce-batch/assets/77673886/03991861-af32-4840-9d9d-d06f476da686)
 
-  ![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/b48f025d-b2fb-4b56-83de-f872fc7df348)
-
   
   Stop jupyter notebook
   ```
