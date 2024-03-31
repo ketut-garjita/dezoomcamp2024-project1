@@ -54,8 +54,9 @@ You can find the detailed Architecture on the diagram below:
 - Setup New Project and write down your Project ID.
 - Configure service account to get access to the project and download auth-keys (.json). Change auth-keys name if required.
   Please provide the service account the permissions below (*sorted by name*):
--- BigQuery Admin
--- Cloud SQL Client
+  ```
+  1. BigQuery Admin
+  2. Cloud SQL Client
   3. Compute Admin
   4. Compute Engine Service Agent
   5. Compute Network Admin
@@ -66,6 +67,7 @@ You can find the detailed Architecture on the diagram below:
   10. Owner
   11. Storage Admin
   12. Storage Object Admin
+  ```
       
 - Enable the following options under the APIs and services section:
   1. Identity and Access Management (IAM) API
