@@ -92,9 +92,9 @@ You can find the detailed Architecture on the diagram below:
   8. resource "google_dataproc_cluster" (cluster_config : master_config, worker_config, software_config : image_version = "2.2.10-debian12"
       optional_components   = ["DOCKER", "JUPYTER"])
   ```
-- terraform init : command initializes the directory, downloads, teh necesary plugins for the cinfigured provider, and prepares for use.
-- terraform plan : too see execution plan
-- erraform apply : to apply the changes
+- **terraform init** : command initializes the directory, downloads, teh necesary plugins for the cinfigured provider, and prepares for use.
+- **terraform plan** : too see execution plan
+- **terraform apply** : to apply the changes
   
 If you would like to remove your stack from the Cloud, use the terraform destroy command.
 
