@@ -239,10 +239,10 @@ Modify the
 
   Try run spark by using dataset on hdfs
 
-  Copy dataset folder into /user/<some folder>
+  Copy dataset folder into /user/<somefolder>
   ```
   hdfs dfs -mkdir /user/smrhitam
-  hdfs dfs -copyFromLocal  ecommerce-dataset/ /user/s<some folder>
+  hdfs dfs -copyFromLocal  ecommerce-dataset/ /user/s<somefolder>
   ```
 
   Login to Web Master Cluster
