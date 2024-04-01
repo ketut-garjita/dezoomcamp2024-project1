@@ -324,7 +324,6 @@ item_properties_dwh preview
 
 ## Dashboard
 
-![locker-studio2](https://github.com/garjita63/retailrocket-ecommerce-batch/assets/77673886/73839329-bb0a-426e-bb95-44da5718504c)
+![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/2427675e-edd8-447c-b3de-1fbecb28e06a)
 
-![locker-studio1](https://github.com/garjita63/retailrocket-ecommerce-batch/assets/77673886/4ca8c142-1f90-4514-ab90-f5241f04f6ef)
 
