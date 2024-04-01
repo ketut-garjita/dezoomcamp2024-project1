@@ -210,7 +210,7 @@ From VM Instance (Compute Engine) --> SSH
 
   Open /home/<some_folder>/.jupyter/jupyter_notebook_config.py 
 
-  Edit file and modify parameters: 
+  Edit file and modify parameter: **c.NotebookApp.max_buffer_size**
 
   ![image](https://github.com/garjita63/retailrocket-ecommerce-batch/assets/77673886/2464f7a3-aad7-4514-add2-412e36321bff)
 
@@ -219,8 +219,10 @@ From VM Instance (Compute Engine) --> SSH
     Edit ~/.bashrc fileand add lines below:
     ```
     export SPATH=$SPARK_HOME/bin:$SPARK/sbin:$PATH
+    source ~/.bashrc
+    which start-all.sh
     ```
-  
+    
     Start master and worker clusters
     ```
     start-all.sh
@@ -234,11 +236,11 @@ From VM Instance (Compute Engine) --> SSH
     hdfs dfs -copyFromLocal  ecommerce-dataset/ /user/s<some_folder>
     ```
 
-    Login to Web Master Cluster
+    Login to Master Cluster web
 
     ![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/2a725a00-6ec0-4658-bb8e-73f6abbdfe64)
 
-    Login to Web Worker Cluster
+    Login to Worker Cluster web
 
     ![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/65c9db9b-58af-428f-97ad-8ad1de1b02cc)
 
@@ -250,7 +252,7 @@ All pipeline and its blocks available in mager-project1.tar files.
   ```
   gcloud auth login
   gcloud config set project <project_name>
-  --> allow to access from your google account
+  --> allow to access of your google account
   ```
   ```
   gcloud compute scp mage-project1.tar <username>@<project_name>:/home/<username>
