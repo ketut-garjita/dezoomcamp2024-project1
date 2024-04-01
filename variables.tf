@@ -1,3 +1,28 @@
+variable "credentials" {
+  description = "My Credentials"
+  default     = "./keys/<your_json_key>"
+}
+
+variable "project_id" {
+  description = "Project"
+  default     = "<your_project_id"
+}
+
+variable "region" {
+  description = "Region"
+  default     = "<your_region>"
+}
+
+variable "zone" {
+  description = "Zone"
+  default     = "<your_zone>"
+}
+
+variable "location" {
+  description = "Project Location"
+  default     = "<your_location>"
+}
+
 variable "dataproc_master_machine_type" {
   type        = string
   description = "dataproc master node machine tyoe"
@@ -46,31 +71,5 @@ variable "subnet_name" {
 
 variable "prefix" {
   description = "Prefix Name for Bucket"
-  default     = "project1"
+  default     = "<your_prefix_name>"
 }
-
-variable "credentials" {
-  description = "My Credentials"
-  default     = "./keys/semar-gcp.json"
-}
-
-variable "project_id" {
-  description = "Project"
-  default     = "semar-de-project1"
-}
-
-variable "region" {
-  description = "Region"
-  default     = "asia-southeast2"
-}
-
-variable "zone" {
-  description = "Zone"
-  default     = "asia-southeast2-c"
-}
-
-variable "location" {
-  description = "Project Location"
-  default     = "asia-southeast2"
-}
-
