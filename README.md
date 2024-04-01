@@ -217,6 +217,8 @@ If you would like to remove your stack from the Cloud, use the **terraform destr
 
   ![image](https://github.com/garjita63/retailrocket-ecommerce-batch/assets/77673886/2464f7a3-aad7-4514-add2-412e36321bff)
 
+  Delete # character
+
 - Spark master and worker clusters
 
     Edit ~/.bashrc file and add lines below:
