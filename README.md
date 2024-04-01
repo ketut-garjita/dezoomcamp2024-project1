@@ -247,6 +247,12 @@ From VM Instance (Compute Engine) --> SSH
 
 ## Mage-ai orchestration pipelines
 
+Create two global variables: bucket_name and dataset as below.
+
+![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/6b1e3ff7-c0dd-4dd1-ba8a-f242e9a075ae)
+
+![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/68e003cb-3c92-4535-b31f-b493578e3666)
+
 All pipeline and its blocks available in mage-project1.tar files.
 - Put mage-project1.tar into VM. You must have file copy authority to the master VM.
   ```
