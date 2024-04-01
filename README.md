@@ -207,12 +207,12 @@ After terrafor apply done :
 
   Restart Juypyer Notebook
 
-    Stop jupyter notebook
+    Stop :
     ```
     sudo systemctl stop jupyter
     ```
     
-    Restart Jupyter by using script below
+    Start by using script below :
     ```
     jupyter-notebook  --port=8888 --ip=0.0.0.0 --no-browser
     ```
