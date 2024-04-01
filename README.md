@@ -328,6 +328,9 @@ item_properties_dwh preview
 
 [The 10 Sold Items](https://lookerstudio.google.com/reporting/1d41fc0d-7470-4e45-9951-9a9e20dc1102)
 
+![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/82524f06-e24d-4147-9c41-096960ff0539)
+
+[Percentage of Events](https://lookerstudio.google.com/reporting/c12cc383-bcb3-4b84-8298-a027277382d9)
 
 
 
