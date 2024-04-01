@@ -4,7 +4,7 @@ This repository contains a brief description of my DE Zoomcamp 2024 Project 1
 
 ## Problem statement
 
-The Retailrocket t has collected a large dataset of E-commerce i.e  a file with behaviour data (events.csv), a file with item properties (item_properties.сsv) and a file, which describes category tree (category_tree.сsv). The data has been collected from a real-world ecommerce website. It is raw data, i.e. without any content transformations, however, all values are hashed due to confidential issues. The purpose of publishing is to motivate researches in the field of recommender systems with implicit feedback.  The goal of this project is to create a streamlined and efficient process for analyzing e-commerce by implementing Data Engineering process flows basics.
+The Retailrocket t has collected a large dataset of E-commerce i.e  a file with behaviour data (events.csv), a file with item properties (item_properties.сsv) and a file, which describes category tree (category_tree.сsv). The data has been collected from a real-world ecommerce website. It is raw data, i.e. without any content transformations, however, all values are hashed due to confidential issues. The purpose of publishing is to motivate researches in the field of recommender systems with implicit feedback.  The goal of this project is to create a streamlined and efficient process for analyzing e-commerce by implementing Data Engineering concepts.
 
 ## About the Dataset
 [Retailrocket recommender system](https://www.kaggle.com/datasets/retailrocket/ecommerce-dataset) 
@@ -31,14 +31,14 @@ The behaviour data, i.e. events like clicks, add to carts, transactions, represe
 
 ## Project Architecture
 
-Kaggle dataset is downloaded into the Google VM, then ingested to Google Cloud Storage Buecket as Data Lake. Next, the data will be stored in BigQuery as a Data Warehouse. All data flows are executed using the Mage-ai workflow orchestration tool. A Spark job is run on the data stored in the Google Storage Buecket or in BigQuery.
+Kaggle dataset is downloaded into the Google VM, then ingested to Google Cloud Storage Buecket as Data Lake. Next, the data will be stored in BigQuery as a Data Warehouse. All data flows are executed using the Mage-ai workflow orchestration tool. A Spark job is run on the data stored in the Google Storage Bucket or in BigQuery.
 The results are written to a dafaframe and/or table in Postgres. A dashboard is created from the Looker Studio.
 
 The end-to-end data pipeline includes the below steps:
-- Kaggle dataset is downloaded into the Google VM
-- The downloaded CSV files (raw) are then uploaded to a folder in Google Cloud bucket (parquet) as Data Like
-- Next, the data will be stored in BigQuery as a Data Warehouse
-- A new table is created from this original table with correct data types as well as partitioned by Month and Clustered by type of event for optimised performance
+- Kaggle dataset is downloaded into the Google VM.
+- The downloaded CSV files (raw) are then uploaded to a folder in Google Cloud bucket (parquet) as Data Like.
+- Next, the data will be stored in BigQuery with format and values same as the GCP bucket files.
+- Last new tables are created from those original tables by using Spark SQL with correct data types as well as partitioned by Month and Clustered for optimised performance. These tables would be Data Warehouse tables. 
 - Spin up a dataproc clusters (master and worker) and execute the pyspark jobs for procusts analys purposes
 - Configure Google Looker Studio to power dashboards from BigQuery Data Warehouse tables
 
@@ -52,7 +52,7 @@ You can find the detailed Architecture on the diagram below:
 ### Setup GCP
 - Create GCP Account.
 - Setup New Project and write down your Project ID.
-- Configure service account to get access to the project and download auth-keys (.json). Change auth-keys name if required.
+- Configure Service Account to get access to the project and download auth-keys (.json). Change auth-keys name if required.
   Please provide the service account the permissions below (*sorted by name*):
   ```
   1. BigQuery Admin
@@ -80,7 +80,7 @@ You can find the detailed Architecture on the diagram below:
 ### Terraform as Internet as Code (IaC) to build infrastructure
 - Download Terraform from here: [https://www.terraform.io/downloads](https://www.terraform.io/downloads)
 - Under terraform folder, create files **main.tf** (required) and **variables.tf** (optional) to store terraform variables. 
-- main.td contents
+- main.td containt the following resources want to be deployed:
   ```
   1. Google Provider Versions
   2. resource "google_service_account"
@@ -95,9 +95,9 @@ You can find the detailed Architecture on the diagram below:
 - **terraform init** or **terraform init -upgrade**: command initializes the directory, downloads, teh necesary plugins for the cinfigured provider, and prepares for use.
 - **terraform plan** : too see execution plan
 - **terraform apply** : to apply the changes
-- **terraform destroy** : to destroy (remove) resources
+
   
-If you would like to remove your stack from the Cloud, use the terraform destroy command.
+If you would like to remove your stack from the Cloud, use the **terraform destroy** command.
 
 
 ### Reproducibility
@@ -122,16 +122,16 @@ After terrafor apply done :
   
   **gloud shell** (local or cloud) :
   ```
-  gcloud compute instances add-access-config <master cluster> --access-config-name="project1-dataproc-m-config"
-  gcloud compute instances add-access-config <worker cluster 0> --access-config-name="project1-dataproc-m-config"
-  gcloud compute instances add-access-config <worker cluster 0> --access-config-name="project1-dataproc-m-config"
+  gcloud compute instances add-access-config <master_cluster> --access-config-name="<master_cluster>-config"
+  gcloud compute instances add-access-config <worker_cluster_0> --access-config-name="<worker_cluster_0>-config"
+  gcloud compute instances add-access-config <worker_cluster_1> --access-config-name="<worker_cluster_1>-config"
   ```
   
-  *Provide master and worker cluster names.*
+  *Provide master_cluster and worker_cluster names.*
 
-- Set up Mage-ai, PostgreSQL and pgAdmin through Master SSH.
+- Set up Mage-ai, PostgreSQL and pgAdmin through the Master VM Instance SSH.
 
-  Copy repsistories.sh into VM. repsistories.sh is script for installing docker network and bring up docker containers of Mage-ai, postgresql and pgAdmin. .
+  Copy repsistories.sh into VM. repsistories.sh is script for installing docker network and bring up docker containers of Mage-ai, postgresql and pgAdmin.
   ```
   #############Install Docker network#############
   #create a network most containers will use
@@ -203,18 +203,20 @@ After terrafor apply done :
   
   ![image](https://github.com/garjita63/retailrocket-ecommerce-batch/assets/77673886/03991861-af32-4840-9d9d-d06f476da686)
 
-  
-  Stop jupyter notebook
-  ```
-  sudo systemctl stop jupyter
-  ```
-  
-  Restart Jupyter by using script below
-  ```
-  jupyter-notebook  --port=8888 --ip=0.0.0.0 --no-browser
-  ```
 
-   ![image](https://github.com/garjita63/retailrocket-ecommerce-batch/assets/77673886/e78fc04d-9055-4aeb-ac27-5b877a99e1ec)
+  Restart Juypyer Notebook
+
+    Stop jupyter notebook
+    ```
+    sudo systemctl stop jupyter
+    ```
+    
+    Restart Jupyter by using script below
+    ```
+    jupyter-notebook  --port=8888 --ip=0.0.0.0 --no-browser
+    ```
+  
+     ![image](https://github.com/garjita63/retailrocket-ecommerce-batch/assets/77673886/e78fc04d-9055-4aeb-ac27-5b877a99e1ec)
 
 - Increase memory size for cluster if required
 
@@ -230,29 +232,32 @@ After terrafor apply done :
 
 - Spark master and worker clusters
 
-  Edit ~/.bashrc fileand add lines below:
-  ```
-  export SPATH=$SPARK_HOME/bin:$SPARK/sbin:$PATH
-  ```
+    Edit ~/.bashrc fileand add lines below:
+    ```
+    export SPATH=$SPARK_HOME/bin:$SPARK/sbin:$PATH
+    ```
+  
+    Start master and worker clusters
+    ```
+    start-all.sh
+    ```
 
-  Start master and worker clusters
-  ```
-  start-all.sh
-  ```
+    Try run spark by using dataset on hdfs
+  
+    Copy dataset folder into /user/<somefolder>
+    ```
+    hdfs dfs -mkdir /user/smrhitam
+    hdfs dfs -copyFromLocal  ecommerce-dataset/ /user/s<somefolder>
+    ```
 
-  Try run spark by using dataset on hdfs
+    Login to Web Master Cluster
 
-  Copy dataset folder into /user/<somefolder>
-  ```
-  hdfs dfs -mkdir /user/smrhitam
-  hdfs dfs -copyFromLocal  ecommerce-dataset/ /user/s<somefolder>
-  ```
+    ![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/2a725a00-6ec0-4658-bb8e-73f6abbdfe64)
 
-  Login to Web Master Cluster
+    Login to Web Worker Cluster
 
+    ![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/65c9db9b-58af-428f-97ad-8ad1de1b02cc)
 
-  Login to Web Worker Cluster
-   
 
 ## Mage-ai orchestration pipelines
 
