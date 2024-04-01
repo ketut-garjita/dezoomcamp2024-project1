@@ -95,6 +95,7 @@ You can find the detailed Architecture on the diagram below:
 - **terraform init** or **terraform init -upgrade**: command initializes the directory, downloads, teh necesary plugins for the cinfigured provider, and prepares for use.
 - **terraform plan** : too see execution plan
 - **terraform apply** : to apply the changes
+- **terraform destroy** : to destroy (remove) resources
   
 If you would like to remove your stack from the Cloud, use the terraform destroy command.
 
