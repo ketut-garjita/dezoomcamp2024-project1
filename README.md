@@ -275,31 +275,29 @@ All pipeline and its blocks available in mage-project1.tar files.
 
 ![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/c3714049-6cdb-4f30-b92a-82c4cd4c7ca3)
 
-![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/ce3c86ad-8ea1-4d4a-9ddc-408c699a274e)
+![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/61b8da66-962c-40e8-91b8-b01fd8246bdd)
 
-![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/1c5ac741-fe18-4ee4-9549-88c7394283e7)
+![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/278928b2-9fea-4814-8fe7-c5ab8385a900)
 
-![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/bcfbb92a-b40c-428e-af62-b0111ea96d76)
+![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/b1b6ef82-babb-41b8-9cad-db1b61464d30)
 
-![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/c157df89-d5e8-429a-855a-29c4c405ba97)
+![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/540aaf85-6d86-4e96-88f8-a8bba47d8939)
 
-![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/029017d9-47bd-4d80-9e3f-150bba1940c6)
+![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/87ab35b1-bee4-4774-9caa-62f9d410c41f)
 
-![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/47adf1f5-edde-4a62-bd77-e286cfea6627)
+![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/a9bdd493-8806-4f2e-866b-27a1dd607430)
 
-![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/80b44ef7-4d79-4248-87a2-88e5432683f1)
+![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/301645ce-82a6-4f62-934d-06cb8b208d0c)
 
-![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/3ed735e6-f0c0-466a-b96a-b3aa4babdefc)
+![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/b43880ee-cdc4-41f6-a6a9-254a9c203a18)
 
-![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/90178e95-4e8a-4d0c-86e2-5e121df462d0)
+![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/e18066c3-7544-492f-868c-ee2558b20a6d)
 
-![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/dec77702-674a-4895-8413-77f3e490c637)
+![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/f41e48e6-f4af-43af-a6fa-41a5ec1e5cc7)
 
-![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/0cf02751-3185-41eb-a33b-f7dd70677b31)
+![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/6b9e4ea0-35a0-491a-ae8a-0765dccd905b)
 
-![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/38533740-1186-4294-9110-2718203ec87c)
-
-![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/a2619916-42f3-4c6d-919b-69c7a652a718)
+![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/cb373318-2dae-48d3-bb43-957b45660b3c)
 
 
 ## BigQuery Tables
