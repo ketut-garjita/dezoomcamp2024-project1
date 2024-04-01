@@ -4,7 +4,7 @@ This repository contains a brief description of my DE Zoomcamp 2024 Project 1
 
 ## Problem statement
 
-The Retailrocket t has collected a large dataset of E-commerce i.e  a file with behaviour data (events.csv), a file with item properties (item_properties.сsv) and a file, which describes category tree (category_tree.сsv). The data has been collected from a real-world ecommerce website. It is raw data, i.e. without any content transformations, however, all values are hashed due to confidential issues. The purpose of publishing is to motivate researches in the field of recommender systems with implicit feedback.  The goal of this project is to create a streamlined and efficient process for analyzing e-commerce by implementing Data Engineering concepts.
+The Retailrocket t has collected a large dataset of E-commerce i.e  a file with behaviour data (events.csv), a file with item properties (item_properties.сsv) and a file, which describes category tree (category_tree.сsv). The data has been collected from a real-world ecommerce website. It is raw data, i.e. without any content transformations, however, all values are hashed due to confidential issues. The purpose of publishing is to motivate researches in the field of recommender systems with implicit feedback.  The goal of this project is to create a streamlined and efficient process for ingesting and analyzing e-commerce by implementing Data Engineering concepts.
 
 ## About the Dataset
 [Retailrocket recommender system](https://www.kaggle.com/datasets/retailrocket/ecommerce-dataset) 
