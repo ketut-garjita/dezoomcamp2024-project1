@@ -236,16 +236,13 @@ If you would like to remove your stack from the Cloud, use the **terraform destr
     Copy dataset folder into /user/<some_folder>
     ```
     hdfs dfs -mkdir /user/<some_folder>
-    hdfs dfs -copyFromLocal  ecommerce-dataset/ /user/s<some_folder>
+    hdfs dfs -copyFromLocal ecommerce-dataset/ /user/<some_folder>
     ```
 
     Login to Master Cluster web
 
-    ![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/2a725a00-6ec0-4658-bb8e-73f6abbdfe64)
-
     Login to Worker Cluster web
 
-    ![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/65c9db9b-58af-428f-97ad-8ad1de1b02cc)
 
 
 ## Mage-ai orchestration pipelines
