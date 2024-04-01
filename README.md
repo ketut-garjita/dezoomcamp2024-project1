@@ -99,19 +99,21 @@ If you would like to remove your stack from the Cloud, use the **terraform destr
 
 ### Reproducibility
 
-After terraform apply complete succeesfully, assign External IP Address for Master and Workers instances using Console.
+- Assign External IP Address
 
-From VM Instance (Compute Engine) --> SSH
-  
-![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/2d4ff3e3-a28a-4739-a17c-39d64ae4683e)
+  After terraform apply complete succeesfully, assign External IP Address for Master and Workers instances using Console.
 
-![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/b67244eb-3b31-4f7d-ada6-76f261ba1887)
+  From VM Instance (Compute Engine) --> SSH
+    
+  ![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/2d4ff3e3-a28a-4739-a17c-39d64ae4683e)
   
-![image](https://github.com/garjita63/retailrocket-ecommerce-batch/assets/77673886/b0b4c8b8-84bb-40fa-bdde-cd1a517ba399)
-  
-![image](https://github.com/garjita63/retailrocket-ecommerce-batch/assets/77673886/b2ab4aaf-24db-49cc-9d35-c828777bb4e3)
-  
-![image](https://github.com/garjita63/retailrocket-ecommerce-batch/assets/77673886/096daaa8-c50d-44bf-8dcb-c6f0b9e30b9b)
+  ![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/b67244eb-3b31-4f7d-ada6-76f261ba1887)
+    
+  ![image](https://github.com/garjita63/retailrocket-ecommerce-batch/assets/77673886/b0b4c8b8-84bb-40fa-bdde-cd1a517ba399)
+    
+  ![image](https://github.com/garjita63/retailrocket-ecommerce-batch/assets/77673886/b2ab4aaf-24db-49cc-9d35-c828777bb4e3)
+    
+  ![image](https://github.com/garjita63/retailrocket-ecommerce-batch/assets/77673886/096daaa8-c50d-44bf-8dcb-c6f0b9e30b9b)
   
   
 - Setting up Mage-ai, PostgreSQL and pgAdmin through the Master VM Instance SSH.
@@ -198,7 +200,7 @@ From VM Instance (Compute Engine) --> SSH
     ```
     jupyter-notebook  --port=8888 --ip=0.0.0.0 --no-browser
     ```
-    Note: we use 0.0.0.0 for demo. Don't use this in production!
+    Note: we use 0.0.0.0 just for demo purpose. Don't use this in production!
   
     ![image](https://github.com/garjita63/retailrocket-ecommerce-batch/assets/77673886/e78fc04d-9055-4aeb-ac27-5b877a99e1ec)
 
@@ -247,7 +249,7 @@ From VM Instance (Compute Engine) --> SSH
 
 ## Mage-ai orchestration pipelines
 
-Create two global variables: bucket_name and dataset as below.
+Create two runtime variables: bucket_name and dataset. These variables used by all pipeline blocks.
 
 ![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/6b1e3ff7-c0dd-4dd1-ba8a-f242e9a075ae)
 
@@ -325,6 +327,7 @@ item_properties preview
 item_properties_dwh preview
 
 ![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/9b30666d-8ab7-4e9b-b88a-f57c438b5aff)
+
 
 ## Dashboard
 
