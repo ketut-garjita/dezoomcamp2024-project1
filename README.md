@@ -99,26 +99,24 @@ If you would like to remove your stack from the Cloud, use the **terraform destr
 
 ### Reproducibility
 
-After terrafor apply done :
+After terraform apply complete succeesfully, assign External IP Address for Master and Workers instances using Console.
 
-- Assign External IP Address for Master and Workers instances using Console.
+From VM Instance (Compute Engine) --> SSH
+  
+![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/2d4ff3e3-a28a-4739-a17c-39d64ae4683e)
 
-  From VM Instance (Compute Engine) --> SSH
+![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/b67244eb-3b31-4f7d-ada6-76f261ba1887)
   
-  ![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/2d4ff3e3-a28a-4739-a17c-39d64ae4683e)
+![image](https://github.com/garjita63/retailrocket-ecommerce-batch/assets/77673886/b0b4c8b8-84bb-40fa-bdde-cd1a517ba399)
   
-  ![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/b67244eb-3b31-4f7d-ada6-76f261ba1887)
+![image](https://github.com/garjita63/retailrocket-ecommerce-batch/assets/77673886/b2ab4aaf-24db-49cc-9d35-c828777bb4e3)
   
-  ![image](https://github.com/garjita63/retailrocket-ecommerce-batch/assets/77673886/b0b4c8b8-84bb-40fa-bdde-cd1a517ba399)
-  
-  ![image](https://github.com/garjita63/retailrocket-ecommerce-batch/assets/77673886/b2ab4aaf-24db-49cc-9d35-c828777bb4e3)
-  
-  ![image](https://github.com/garjita63/retailrocket-ecommerce-batch/assets/77673886/096daaa8-c50d-44bf-8dcb-c6f0b9e30b9b)
+![image](https://github.com/garjita63/retailrocket-ecommerce-batch/assets/77673886/096daaa8-c50d-44bf-8dcb-c6f0b9e30b9b)
   
   
-- Set up Mage-ai, PostgreSQL and pgAdmin through the Master VM Instance SSH.
+- Setting up Mage-ai, PostgreSQL and pgAdmin through the Master VM Instance SSH.
 
-  Copy repsistories.sh into VM. repsistories.sh is script for installing docker network and bring up docker containers of Mage-ai, postgresql and pgAdmin.
+  Copy **repsistories.sh** into VM. repsistories.sh is script for installing docker network and bring up docker containers of Mage-ai, postgresql and pgAdmin.
   ```
   #############Install Docker network#############
   #create a network most containers will use
@@ -181,7 +179,6 @@ After terrafor apply done :
 
   ==> *Mage-ai, postgresql and pgAdmin would be installed and up running.*
 
-
   Check mage :
   
   ![image](https://github.com/garjita63/retailrocket-ecommerce-batch/assets/77673886/b3906b1d-0b46-4166-af52-525f86b60a0c)
@@ -190,7 +187,6 @@ After terrafor apply done :
   
   ![image](https://github.com/garjita63/retailrocket-ecommerce-batch/assets/77673886/03991861-af32-4840-9d9d-d06f476da686)
 
-
   Restart Juypyer Notebook
 
     Stop :
@@ -198,12 +194,13 @@ After terrafor apply done :
     sudo systemctl stop jupyter
     ```
     
-    Start by using script below :
+    Start by using port 8888 :
     ```
     jupyter-notebook  --port=8888 --ip=0.0.0.0 --no-browser
     ```
+    Note: we use 0.0.0.0 for demo. Don't use this in production!
   
-     ![image](https://github.com/garjita63/retailrocket-ecommerce-batch/assets/77673886/e78fc04d-9055-4aeb-ac27-5b877a99e1ec)
+    ![image](https://github.com/garjita63/retailrocket-ecommerce-batch/assets/77673886/e78fc04d-9055-4aeb-ac27-5b877a99e1ec)
 
 - Increase memory size for cluster if required, and then restart Jupyter Notebook
 
@@ -213,7 +210,7 @@ After terrafor apply done :
 
   Open /home/<some_folder>/.jupyter/jupyter_notebook_config.py 
 
-  Modify the
+  Edit file and modify parameters: 
 
   ![image](https://github.com/garjita63/retailrocket-ecommerce-batch/assets/77673886/2464f7a3-aad7-4514-add2-412e36321bff)
 
