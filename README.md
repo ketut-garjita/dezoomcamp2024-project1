@@ -255,7 +255,7 @@ Create two runtime variables: bucket_name and dataset. These variables used by a
 
 ![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/68e003cb-3c92-4535-b31f-b493578e3666)
 
-All pipeline and its blocks available in mage-project1.tar files.
+Pipeline and its blocks available in mage-project1.tar files.
 - Put mage-project1.tar into VM. You must have file copy authority to the master VM.
   ```
   gcloud auth login
@@ -268,7 +268,7 @@ All pipeline and its blocks available in mage-project1.tar files.
 - Open SSH on Master instance
 - Copy mage-project1.tar into mage container (in this project named: dezoomcamp-mage)
   ```
-  docker cp mager-project1.tar <mage_container>:/home/src/<some_folder>   # in this project is "dezoomcamp'
+  docker cp mage-project1.tar <mage_container>:/home/src/<some_folder>   # in this project is "dezoomcamp'
   ```
 - Go to mage container
   ```
