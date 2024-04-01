@@ -142,14 +142,13 @@ If you would like to remove your stack from the Cloud, use the **terraform destr
         POSTGRES_DBNAME: dezoomcampdb
         POSTGRES_SCHEMA: public
         POSTGRES_USER: postgres
-        POSTGRES_PASSWORD: postgres316
+        POSTGRES_PASSWORD: <password>
         POSTGRES_HOST: vm-ikg-dezoomcamp
         POSTGRES_PORT: 5432
       ports:
         - 6789:6789
       volumes:
         - .:/home/src/
-        - /root/.google/credentials/key-ikg-dezoomcamp-2024.json
       restart: on-failure:5
     postgres:
       image: postgres:14
@@ -158,7 +157,7 @@ If you would like to remove your stack from the Cloud, use the **terraform destr
       environment:
         POSTGRES_DB: dezoomcampdb
         POSTGRES_USER: postgres
-        POSTGRES_PASSWORD: postgres316
+        POSTGRES_PASSWORD: <password>
       ports:
         - 5432:5432
     pgadmin:
@@ -166,7 +165,7 @@ If you would like to remove your stack from the Cloud, use the **terraform destr
       container_name: dezoomcamp-pgadmin
       environment:
         - PGADMIN_DEFAULT_EMAIL=admin@admin.com
-        - PGADMIN_DEFAULT_PASSWORD=root
+        - PGADMIN_DEFAULT_PASSWORD=<password>
       ports:
         - 8080:80
         
@@ -175,6 +174,8 @@ If you would like to remove your stack from the Cloud, use the **terraform destr
   sudo docker compose -f /root/docker-compose.yml up -d
   ```
 
+  *Note : provide password in repositories.sh file above*
+  
   chmod +x repositories.sh
 
   sudo ./repositories.sh
