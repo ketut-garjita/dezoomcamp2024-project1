@@ -118,7 +118,7 @@ If you would like to remove your stack from the Cloud, use the **terraform destr
   
 - Setting up Mage-ai, PostgreSQL and pgAdmin through the Master VM Instance SSH.
 
-  Copy **repsistories.sh** into VM. repsistories.sh is script for installing docker network and bring up docker containers of Mage-ai, postgresql and pgAdmin.
+  Copy **repositories.sh** into VM. The repositories.sh is script for installing docker network and bring up docker containers of Mage-ai, postgresql and pgAdmin.
   ```
   #############Install Docker network#############
   #create a network most containers will use
@@ -182,7 +182,7 @@ If you would like to remove your stack from the Cloud, use the **terraform destr
 
   ==> *Mage-ai, postgresql and pgAdmin would be installed and up running.*
 
-  Check mage :
+  Check mage-ai:
   
   ![image](https://github.com/garjita63/retailrocket-ecommerce-batch/assets/77673886/b3906b1d-0b46-4166-af52-525f86b60a0c)
   
