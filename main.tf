@@ -44,7 +44,7 @@ resource "google_compute_firewall" "rules" {
 
 resource "google_bigquery_dataset" "default" {
   dataset_id = var.prefix
-  location   = var.location
+  location   = var.region
 }
 
 resource "google_service_account" "dataproc-svc" {
