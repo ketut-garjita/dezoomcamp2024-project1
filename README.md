@@ -31,9 +31,6 @@ The behaviour data, i.e. events like clicks, add to carts, transactions, represe
 
 ## Project Architecture
 
-Kaggle dataset is downloaded into the Google VM, then ingested to Google Cloud Storage Buecket as Data Lake. Next, the data will be stored in BigQuery as a Data Warehouse. All data flows are executed using the Mage-ai workflow orchestration tool. A Spark job is run on the data stored in the Google Storage Bucket or in BigQuery.
-The results are written to a dafaframe and/or table in Postgres. A dashboard is created from the Looker Studio.
-
 The end-to-end data pipeline includes the below steps:
 - Kaggle dataset is downloaded into the Google VM.
 - The downloaded CSV files (raw) are then uploaded to a folder in Google Cloud bucket (parquet) as Data Like.
@@ -74,7 +71,7 @@ You can find the detailed Architecture on the diagram below:
   1. Identity and Access Management (IAM) API
   2. IAM service account credentials API
   3. Cloud Dataproc API
-  3. Compute Engine API (if you are going to use VM instance)
+  4. Compute Engine API (if you are going to use VM instance)
   ```
   
 
@@ -96,7 +93,6 @@ You can find the detailed Architecture on the diagram below:
 - **terraform init** or **terraform init -upgrade**: command initializes the directory, downloads, teh necesary plugins for the cinfigured provider, and prepares for use.
 - **terraform plan** : too see execution plan
 - **terraform apply** : to apply the changes
-
   
 If you would like to remove your stack from the Cloud, use the **terraform destroy** command.
 
@@ -105,11 +101,9 @@ If you would like to remove your stack from the Cloud, use the **terraform destr
 
 After terrafor apply done :
 
-- Assign External IP Address for Master and Workers Clusters. You can use either Console or gcloud :
+- Assign External IP Address for Master and Workers instances using Console.
 
-  **Console** :
-
-  From VM Instance (Compute Engine) - SSH
+  From VM Instance (Compute Engine) --> SSH
   
   ![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/2d4ff3e3-a28a-4739-a17c-39d64ae4683e)
   
@@ -121,15 +115,7 @@ After terrafor apply done :
   
   ![image](https://github.com/garjita63/retailrocket-ecommerce-batch/assets/77673886/096daaa8-c50d-44bf-8dcb-c6f0b9e30b9b)
   
-  **gloud shell** (local or cloud) :
-  ```
-  gcloud compute instances add-access-config <master_cluster> --access-config-name="<master_cluster>-config"
-  gcloud compute instances add-access-config <worker_cluster_0> --access-config-name="<worker_cluster_0>-config"
-  gcloud compute instances add-access-config <worker_cluster_1> --access-config-name="<worker_cluster_1>-config"
-  ```
   
-  *Provide master_cluster and worker_cluster names.*
-
 - Set up Mage-ai, PostgreSQL and pgAdmin through the Master VM Instance SSH.
 
   Copy repsistories.sh into VM. repsistories.sh is script for installing docker network and bring up docker containers of Mage-ai, postgresql and pgAdmin.
