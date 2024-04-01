@@ -5,7 +5,7 @@ variable "credentials" {
 
 variable "project_id" {
   description = "Project"
-  default     = "<your_project_id"
+  default     = "<your_project_id>"
 }
 
 variable "region" {
@@ -71,5 +71,5 @@ variable "subnet_name" {
 
 variable "prefix" {
   description = "Prefix Name for Bucket"
-  default     = "<your_prefix_name>"
+  default     = "project1"
 }
