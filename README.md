@@ -219,7 +219,7 @@ After terrafor apply done :
   
      ![image](https://github.com/garjita63/retailrocket-ecommerce-batch/assets/77673886/e78fc04d-9055-4aeb-ac27-5b877a99e1ec)
 
-- Increase memory size for cluster if required
+- Increase memory size for cluster if required, and then restart Jupyter Notebook
 
   ```
   jupyter notebook --generate-config
