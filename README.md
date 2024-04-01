@@ -45,6 +45,8 @@ You can find the detailed Architecture on the diagram below:
 
 ![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/9f7acc61-df73-4484-bf66-ecbcfb5fe4f4)
 
+![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/623e7f80-1636-4db8-a2eb-2f28c783654c)
+
 
 ## Reproducing from Scratch
 
