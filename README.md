@@ -262,6 +262,27 @@ After terrafor apply done :
 
 ## Mage-ai orchestration pipelines
 
+All pipeline and its blocks available in mager-project1.tar files.
+- Put mage-project1.tar into VM
+  ```
+  gcloud compute scp mage-project1.tar <username>@<project_name>:/home/<username>
+  ```
+- Open SSH on Master instance
+- Copy mage-project1.tar into mage container (in this project named: dezoomcamp-mage)
+  ```
+  docker cp mager-project1.tar <mage_container>:/home/src/<some_folder>   # in this project is "dezoomcamp'
+  ```
+- Go to mage container
+  ```
+  docker exec -it <mage_container> bash
+  ```
+- Extract (untar) mage-project.tar file
+  ```
+  cd /home/src/<some_folder>
+  tar -xvf mage-project1.tar
+  ```
+- Open Mage application website, would be : http://<master_external_ip_address>:6789 
+
 ![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/c3714049-6cdb-4f30-b92a-82c4cd4c7ca3)
 
 ![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/ce3c86ad-8ea1-4d4a-9ddc-408c699a274e)
