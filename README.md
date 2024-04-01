@@ -225,7 +225,7 @@ After terrafor apply done :
   jupyter notebook --generate-config
   ```
 
-  Open /home/smrhitam/.jupyter/jupyter_notebook_config.py 
+  Open /home/<some_folder>/.jupyter/jupyter_notebook_config.py 
 
   Modify the
 
@@ -247,7 +247,7 @@ After terrafor apply done :
   
     Copy dataset folder into /user/<somefolder>
     ```
-    hdfs dfs -mkdir /user/smrhitam
+    hdfs dfs -mkdir /user/<some_folder>
     hdfs dfs -copyFromLocal  ecommerce-dataset/ /user/s<somefolder>
     ```
 
