@@ -73,6 +73,7 @@ You can find the detailed Architecture on the diagram below:
   ```
   1. Identity and Access Management (IAM) API
   2. IAM service account credentials API
+  3. Cloud Dataproc API
   3. Compute Engine API (if you are going to use VM instance)
   ```
   
@@ -80,7 +81,7 @@ You can find the detailed Architecture on the diagram below:
 ### Terraform as Internet as Code (IaC) to build infrastructure
 - Download Terraform from here: [https://www.terraform.io/downloads](https://www.terraform.io/downloads)
 - Under terraform folder, create files **main.tf** (required) and **variables.tf** (optional) to store terraform variables. 
-- main.td containt the following resources want to be deployed:
+- main.td containt the following resources want to be applied:
   ```
   1. Google Provider Versions
   2. resource "google_service_account"
