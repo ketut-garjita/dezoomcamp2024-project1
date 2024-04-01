@@ -245,10 +245,10 @@ After terrafor apply done :
 
     Try run spark by using dataset on hdfs
   
-    Copy dataset folder into /user/<somefolder>
+    Copy dataset folder into /user/<some_folder>
     ```
     hdfs dfs -mkdir /user/<some_folder>
-    hdfs dfs -copyFromLocal  ecommerce-dataset/ /user/s<somefolder>
+    hdfs dfs -copyFromLocal  ecommerce-dataset/ /user/s<some_folder>
     ```
 
     Login to Web Master Cluster
