@@ -286,7 +286,7 @@ All pipeline and its blocks available in mager-project1.tar files.
   cd /home/src/<some_folder>
   tar -xvf mage-project1.tar
   ```
-- Open Mage application website, would be : http://<master_external_ip_address>:6789 
+- Open Mage application website : http://<master_external_ip_address>:6789 
 
 ![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/c3714049-6cdb-4f30-b92a-82c4cd4c7ca3)
 
