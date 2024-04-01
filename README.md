@@ -4,7 +4,7 @@ This repository contains a brief description of my DE Zoomcamp 2024 Project 1
 
 ## Problem statement
 
-The Retailrocket t has collected a large dataset of E-commerce i.e  a file with behaviour data (events.csv), a file with item properties (item_properties.сsv) and a file, which describes category tree (category_tree.сsv). The data has been collected from a real-world ecommerce website. It is raw data, i.e. without any content transformations, however, all values are hashed due to confidential issues. The purpose of publishing is to motivate researches in the field of recommender systems with implicit feedback.  The goal of this project is to create a streamlined and efficient process for ingesting and analyzing e-commerce on Cloud by implementing Data Engineering concepts.
+The Retailrocket has collected a large dataset of E-commerce i.e  a file with behaviour data (events.csv), a file with item properties (item_properties.сsv) and a file, which describes category tree (category_tree.сsv). The data has been collected from a real-world ecommerce website. It is raw data, i.e. without any content transformations, however, all values are hashed due to confidential issues. The purpose of publishing is to motivate researches in the field of recommender systems with implicit feedback.  The goal of this project is to create a streamlined and efficient process for ingesting and analyzing e-commerce on Cloud by implementing Data Engineering concepts.
 
 ## About the Dataset
 [Retailrocket recommender system](https://www.kaggle.com/datasets/retailrocket/ecommerce-dataset) 
@@ -216,7 +216,7 @@ From VM Instance (Compute Engine) --> SSH
 
 - Spark master and worker clusters
 
-    Edit ~/.bashrc fileand add lines below:
+    Edit ~/.bashrc file and add lines below:
     ```
     export SPATH=$SPARK_HOME/bin:$SPARK/sbin:$PATH
     source ~/.bashrc
@@ -247,7 +247,7 @@ From VM Instance (Compute Engine) --> SSH
 
 ## Mage-ai orchestration pipelines
 
-All pipeline and its blocks available in mager-project1.tar files.
+All pipeline and its blocks available in mage-project1.tar files.
 - Put mage-project1.tar into VM. You must have file copy authority to the master VM.
   ```
   gcloud auth login
