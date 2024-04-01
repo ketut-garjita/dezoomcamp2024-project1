@@ -263,7 +263,12 @@ After terrafor apply done :
 ## Mage-ai orchestration pipelines
 
 All pipeline and its blocks available in mager-project1.tar files.
-- Put mage-project1.tar into VM
+- Put mage-project1.tar into VM. You must have file copy authority to the master VM.
+  ```
+  gcloud auth login
+  gcloud config set project <project_name>
+  --> allow to access from your google account
+  ```
   ```
   gcloud compute scp mage-project1.tar <username>@<project_name>:/home/<username>
   ```
