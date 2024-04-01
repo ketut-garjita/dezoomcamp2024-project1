@@ -38,7 +38,7 @@ resource "google_compute_firewall" "rules" {
   source_ranges = ["0.0.0.0/0"]
   allow {
     protocol  = "tcp"
-    ports     = ["80", "8080", "1000-2000", 5432, 6789]
+     ports     = ["80", "8000-9000", "1000-2000", 5432, 6789, 4040, 18081, 18082]
   }
 }
 
@@ -78,7 +78,6 @@ resource "google_storage_bucket_iam_member" "dataproc-member" {
   role   = "roles/storage.admin"
   member = "serviceAccount:${google_service_account.dataproc-svc.email}"
 }
-
 
 resource "google_dataproc_cluster" "mycluster" {
   name                          = "project1-dataproc"
@@ -124,15 +123,9 @@ resource "google_dataproc_cluster" "mycluster" {
 
     gce_cluster_config {
       zone = "${var.region}-c"
-      #subnetwork             = var.subnet_name
-      #service_account        = google_service_account.dataproc-svc.email
-      service_account         = "212352110204-compute@developer.gserviceaccount.com"
+      service_account         = "<your service account>"
       service_account_scopes = ["cloud-platform"]
-    }
-    #initialization_action {
-    #    script = "gs://semar-bucket/execute-shell.sh"
-    #    timeout_sec = 500
-    #}       
+    }     
   }
 }
 
