@@ -18,11 +18,6 @@ variable "zone" {
   default     = "<your_zone>"
 }
 
-variable "location" {
-  description = "Project Location"
-  default     = "<your_location>"
-}
-
 variable "dataproc_master_machine_type" {
   type        = string
   description = "dataproc master node machine tyoe"
