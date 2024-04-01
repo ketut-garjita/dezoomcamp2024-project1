@@ -302,6 +302,26 @@ All pipeline and its blocks available in mager-project1.tar files.
 ![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/a2619916-42f3-4c6d-919b-69c7a652a718)
 
 
+## BigQuery Tables
+
+![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/3f8dbff6-eeb4-41e6-bea6-a583f8a4495b)
+
+events preview
+
+![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/4504b276-41de-4281-bb8d-9e80f7eea1b8)
+
+events_dwh preview
+
+![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/a8cf4106-79da-4a5f-b915-542b6f30d7a7)
+
+item_properties preview
+
+![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/e3709b62-e099-4a65-b137-cf521f134aa5)
+
+item_properties_dwh preview
+
+![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/9b30666d-8ab7-4e9b-b88a-f57c438b5aff)
+
 ## Dashboard
 
 ![locker-studio2](https://github.com/garjita63/retailrocket-ecommerce-batch/assets/77673886/73839329-bb0a-426e-bb95-44da5718504c)
