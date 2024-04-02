@@ -310,7 +310,8 @@ Pipeline and its blocks available in mage-project1.tar files.
 
 ## BigQuery Tables
 
-![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/3f8dbff6-eeb4-41e6-bea6-a583f8a4495b)
+![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/56182c69-7fc1-4193-a69a-2a5fedfaa41f)
+
 
 events preview
 
