@@ -299,13 +299,13 @@ Pipeline and its blocks available in mage-project1.tar files.
 
 ![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/b43880ee-cdc4-41f6-a6a9-254a9c203a18)
 
-![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/e18066c3-7544-492f-868c-ee2558b20a6d)
+![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/54a06a8a-192b-4029-882e-feee61b5fb6b)
 
-![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/f41e48e6-f4af-43af-a6fa-41a5ec1e5cc7)
+![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/e9db7e2e-6282-499b-bb96-b6252035d0f8)
 
-![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/6b9e4ea0-35a0-491a-ae8a-0765dccd905b)
+![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/35b761b9-2377-4312-b43e-d37bca75dc43)
 
-![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/cb373318-2dae-48d3-bb43-957b45660b3c)
+![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/a6f1a529-cbf2-42db-88ee-5ab21923a8b0)
 
 
 ## BigQuery Tables
