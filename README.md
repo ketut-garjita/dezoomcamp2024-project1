@@ -295,8 +295,6 @@ Pipeline and its blocks available in mage-project1.tar files.
 
 ![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/ead83ef3-993f-4892-8786-637208b9aba1)
 
-![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/a9bdd493-8806-4f2e-866b-27a1dd607430)
-
 ![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/301645ce-82a6-4f62-934d-06cb8b208d0c)
 
 ![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/b43880ee-cdc4-41f6-a6a9-254a9c203a18)
