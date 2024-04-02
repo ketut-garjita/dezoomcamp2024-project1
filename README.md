@@ -281,7 +281,7 @@ Pipeline and its blocks available in mage-project1.tar files.
   ```
 - Open Mage application website : http://<master_external_ip_address>:6789 
 
-![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/c3714049-6cdb-4f30-b92a-82c4cd4c7ca3)
+![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/780553c9-a6af-4c34-b9f5-7559947b4fd1)
 
 ![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/61b8da66-962c-40e8-91b8-b01fd8246bdd)
 
