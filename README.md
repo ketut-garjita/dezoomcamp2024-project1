@@ -340,6 +340,11 @@ item_properties_dwh preview
 
 ![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/82524f06-e24d-4147-9c41-096960ff0539)
 
+[Number of categoryid by parentid](https://lookerstudio.google.com/s/rykyVybnLkU)
+
+![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/9d74dace-e7ba-40e1-a9cf-2e09bd3a76a8)
+
+
 
 
 
