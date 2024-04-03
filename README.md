@@ -33,7 +33,7 @@ The behaviour data, i.e. events like clicks, add to carts, transactions, represe
 
 The end-to-end data pipeline includes the below steps:
 - Kaggle dataset is downloaded into the Google VM.
-- The downloaded CSV files (raw) are then uploaded to a folder in Google Cloud bucket (parquet) as Data Like.
+- The downloaded CSV files (raw) are then uploaded to a folder in Google Cloud bucket (parquet) as Data Lake.
 - Next, the data will be stored in BigQuery with format and values same as the GCP bucket files.
 - Last new tables are created from those original tables by using Spark SQL with correct data types as well as partitioned by Month and Clustered for optimised performance. These tables would be Data Warehouse tables. 
 - Spin up a dataproc clusters (master and worker) and execute the pyspark jobs for procusts analys purposes
