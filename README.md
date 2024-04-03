@@ -374,141 +374,148 @@ To run a Mage pipeline once, you can do so by setting up a trigger with the sche
 - Convert unix timestanp of timestamp column on events and item_properties tables
 
   - Start Cluster on Console
+  - Stop and Start VM Instances (Master and Workers)
+  - Open Master SSH
   
-    - Stop and Start VM Instances (Master and Workers)
+    Restart jupyter-notebook
 
-  Open Master SSH
+    ```
+    sudo systemctl stop jupyter
+    jupyter-notebook --port=8888 --ip=0.0.0.0 --no-browser
+    ```
 
-  Restart jupyter-notebook
+  - Run script below on Jupyter-Notebook editor.
 
-  ```
-  sudo systemctl stop jupyter
-  jupyter-notebook  --port=8888 --ip=0.0.0.0 --no-browser
-  ```
+    Make sure you have free enough disk space on VM
+    
+    ```
+    # Transform events table into events_dwh
+    # from_unixtime --> datetime (yyyy-MM-DD HH:mm:ss)
+    # Run in Cloud Jupyter Notebook
+    
+    import pyspark
+    from pyspark.sql import SparkSession
+    from pyspark.conf import SparkConf
+    from pyspark.context import SparkContext
+    
+    # credentials_location = '/root/.google/credentials/google-creds.json'
+    
+    
+    conf = SparkConf() \
+        .setAppName('events') \
+        .set("spark.jars", "/usr/lib/spark/jars/gcs-connector-hadoop3-latest.jar") \
+        .set("spark.hadoop.google.cloud.auth.service.account.enable", "true") 
+    #    .set("spark.hadoop.google.cloud.auth.service.account.json.keyfile", credentials_location)
+    
+    spark = SparkSession.builder.config(conf=conf).getOrCreate()
+    
+    project_id = "semar-de-project1"
+    dataset_id = "project1"
+    table_source = "events"
+    
+    df = spark.read.format('bigquery') \
+        .option("temporaryGcsBucket","dataproc-temp-asia-southeast2-212352110204-1oi7hped") \
+        .option("project", project_id) \
+        .option("dataset", dataset_id) \
+        .load(table_source)
+        
+    df.createOrReplaceTempView("temp_events")
+    
+    events_transform = spark.sql("""
+    select from_unixtime((timestamp / 1000), "yyyy-MM-dd HH:mm:ss") as timestamp, 
+        visitorid, event, itemid, transactionid
+    from temp_events
+    """)
+    
+    events_transform.show()
+    
+    project_id = "semar-de-project1"
+    dataset_id = "project1"
+    table_target = "events_dwh"
+    parttition_column = "DATE_FORMAT(timestamp, 'yyyy-MM')"
+    cluster_column = "event"
+    
+    events_transform.write \
+        .format("bigquery") \
+        .option("temporaryGcsBucket","dataproc-temp-asia-southeast2-212352110204-1oi7hped") \
+        .option("table", f"{project_id}.{dataset_id}.{table_target}") \
+        .option("PARTITION BY",  parttition_column) \
+        .option("CLUSTER BY", cluster_column) \
+        .mode('Overwrite') \
+        .save()
+    
+    # Stop Spark session
+    spark.stop()
+    ```
   
-  Run script below on Jupyter-Notebook editor.
-  ```
-  # Transform events table into events_dwh
-  # from_unixtime --> datetime (yyyy-MM-DD HH:mm:ss)
-  # Run in Cloud Jupyter Notebook
-  
-  import pyspark
-  from pyspark.sql import SparkSession
-  from pyspark.conf import SparkConf
-  from pyspark.context import SparkContext
-  
-  # credentials_location = '/root/.google/credentials/google-creds.json'
-  
-  
-  conf = SparkConf() \
-      .setAppName('events') \
-      .set("spark.jars", "/usr/lib/spark/jars/gcs-connector-hadoop3-latest.jar") \
-      .set("spark.hadoop.google.cloud.auth.service.account.enable", "true") 
-  #    .set("spark.hadoop.google.cloud.auth.service.account.json.keyfile", credentials_location)
-  
-  spark = SparkSession.builder.config(conf=conf).getOrCreate()
-  
-  project_id = "semar-de-project1"
-  dataset_id = "project1"
-  table_source = "events"
-  
-  df = spark.read.format('bigquery') \
-      .option("temporaryGcsBucket","dataproc-temp-asia-southeast2-212352110204-1oi7hped") \
-      .option("project", project_id) \
-      .option("dataset", dataset_id) \
-      .load(table_source)
-      
-  df.createOrReplaceTempView("temp_events")
-  
-  events_transform = spark.sql("""
-  select from_unixtime((timestamp / 1000), "yyyy-MM-dd HH:mm:ss") as timestamp, 
-      visitorid, event, itemid, transactionid
-  from temp_events
-  """)
-  
-  events_transform.show()
-  
-  project_id = "semar-de-project1"
-  dataset_id = "project1"
-  table_target = "events_dwh"
-  parttition_column = "DATE_FORMAT(timestamp, 'yyyy-MM')"
-  cluster_column = "event"
-  
-  events_transform.write \
-      .format("bigquery") \
-      .option("temporaryGcsBucket","dataproc-temp-asia-southeast2-212352110204-1oi7hped") \
-      .option("table", f"{project_id}.{dataset_id}.{table_target}") \
-      .option("PARTITION BY",  parttition_column) \
-      .option("CLUSTER BY", cluster_column) \
-      .mode('Overwrite') \
-      .save()
-  
-  # Stop Spark session
-  spark.stop()
-  ```
+    ```
+    # Transform item_properties table into item_properties_dwh
+    # from_unixtime --> datetime (yyyy-MM-DD HH:mm:ss)
+    # Run in Cloud Jupyter Notebook
+    
+    import pyspark
+    from pyspark.sql import SparkSession
+    from pyspark.conf import SparkConf
+    from pyspark.context import SparkContext
+    
+    # credentials_location = '/root/.google/credentials/google-creds.json'
+    
+    
+    conf = SparkConf() \
+        .setAppName('item_properties') \
+        .set("spark.jars", "/usr/lib/spark/jars/gcs-connector-hadoop3-latest.jar") \
+        .set("spark.hadoop.google.cloud.auth.service.account.enable", "true") 
+    #    .set("spark.hadoop.google.cloud.auth.service.account.json.keyfile", credentials_location)
+    
+    spark = SparkSession.builder.config(conf=conf).getOrCreate()
+    
+    project_id = "semar-de-project1"
+    dataset_id = "project1"
+    table_source = "item_properties"
+    
+    df = spark.read.format('bigquery') \
+        .option("temporaryGcsBucket","dataproc-temp-asia-southeast2-212352110204-1oi7hped") \
+        .option("project", project_id) \
+        .option("dataset", dataset_id) \
+        .load(table_source)
+        
+    df.createOrReplaceTempView("temp_item_properties")
+    
+    item_properties_transform = spark.sql("""
+    select from_unixtime((timestamp / 1000), "yyyy-MM-dd HH:mm:ss") as timestamp, 
+        itemid, property, value
+    from temp_item_properties
+    """)
+    
+    item_properties_transform.show()
+    
+    project_id = "semar-de-project1"
+    dataset_id = "project1"
+    table_target = "item_properties_dwh"
+    parttition_column = "DATE_FORMAT(timestamp, 'yyyy-MM')"
+    cluster_column = "property"
+    
+    item_properties_transform.write \
+        .format("bigquery") \
+        .option("temporaryGcsBucket","dataproc-temp-asia-southeast2-212352110204-1oi7hped") \
+        .option("table", f"{project_id}.{dataset_id}.{table_target}") \
+        .option("PARTITION BY",  parttition_column) \
+        .option("CLUSTER BY", cluster_column) \
+        .mode('Overwrite') \
+        .save()
+    
+    # Stop Spark session
+    spark.stop()
+    ```
 
-  ```
-  # Transform item_properties table into item_properties_dwh
-  # from_unixtime --> datetime (yyyy-MM-DD HH:mm:ss)
-  # Run in Cloud Jupyter Notebook
-  
-  import pyspark
-  from pyspark.sql import SparkSession
-  from pyspark.conf import SparkConf
-  from pyspark.context import SparkContext
-  
-  # credentials_location = '/root/.google/credentials/google-creds.json'
-  
-  
-  conf = SparkConf() \
-      .setAppName('item_properties') \
-      .set("spark.jars", "/usr/lib/spark/jars/gcs-connector-hadoop3-latest.jar") \
-      .set("spark.hadoop.google.cloud.auth.service.account.enable", "true") 
-  #    .set("spark.hadoop.google.cloud.auth.service.account.json.keyfile", credentials_location)
-  
-  spark = SparkSession.builder.config(conf=conf).getOrCreate()
-  
-  project_id = "semar-de-project1"
-  dataset_id = "project1"
-  table_source = "item_properties"
-  
-  df = spark.read.format('bigquery') \
-      .option("temporaryGcsBucket","dataproc-temp-asia-southeast2-212352110204-1oi7hped") \
-      .option("project", project_id) \
-      .option("dataset", dataset_id) \
-      .load(table_source)
-      
-  df.createOrReplaceTempView("temp_item_properties")
-  
-  item_properties_transform = spark.sql("""
-  select from_unixtime((timestamp / 1000), "yyyy-MM-dd HH:mm:ss") as timestamp, 
-      itemid, property, value
-  from temp_item_properties
-  """)
-  
-  item_properties_transform.show()
-  
-  project_id = "semar-de-project1"
-  dataset_id = "project1"
-  table_target = "item_properties_dwh"
-  parttition_column = "DATE_FORMAT(timestamp, 'yyyy-MM')"
-  cluster_column = "property"
-  
-  item_properties_transform.write \
-      .format("bigquery") \
-      .option("temporaryGcsBucket","dataproc-temp-asia-southeast2-212352110204-1oi7hped") \
-      .option("table", f"{project_id}.{dataset_id}.{table_target}") \
-      .option("PARTITION BY",  parttition_column) \
-      .option("CLUSTER BY", cluster_column) \
-      .mode('Overwrite') \
-      .save()
-  
-  # Stop Spark session
-  spark.stop()
-  ```
+  - Check again tables in BigQuert
 
-  Check tables in BigQuert
-  
+    ![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/dfe7e900-b835-45c8-83fe-dfc41d7d66ee)
+
+    ![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/cac2a5b9-e3e6-4bb6-822f-ae0230b435b9)
+
+    ![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/2a8b36e3-803d-449a-b918-79733b290fba)
+
  
 ## Dashboard
 
