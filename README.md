@@ -340,8 +340,6 @@ To run a Mage pipeline once, you can do so by setting up a trigger with the sche
 
 ![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/049d47c8-917a-4f87-8dd3-c74479b743d3)
 
-![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/1c6040ef-95f1-40df-b324-a98e346be640)
-
 ![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/897c6e4c-6210-4712-85ab-86b54b7c469b)
 
 ![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/2c48afda-f091-4a13-8fb9-8c249aaaf204)
