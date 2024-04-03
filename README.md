@@ -384,7 +384,7 @@ To run a Mage pipeline once, you can do so by setting up a trigger with the sche
 
   ![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/e3709b62-e099-4a65-b137-cf521f134aa5)
 
-- Convert unix timestanp of timestamp column on events and item_properties tables
+- Convert unix timestamp of timestamp column to datetime 'yyyy-MM-dd hh:mm:dd' format on events and item_properties tables
 
   - Start Cluster on Console
   - Stop and Start VM Instances (Master and Workers)
