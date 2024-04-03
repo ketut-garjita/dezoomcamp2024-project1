@@ -99,7 +99,7 @@ If you would like to remove your stack from the Cloud, use the **terraform destr
 
 ### Reproducibility
 
-- Assign External IP Address
+#### Assign External IP Address
 
   After terraform apply complete succeesfully, assign External IP Address for Master and Workers instances using Console.
 
@@ -116,7 +116,7 @@ If you would like to remove your stack from the Cloud, use the **terraform destr
   ![image](https://github.com/garjita63/retailrocket-ecommerce-batch/assets/77673886/096daaa8-c50d-44bf-8dcb-c6f0b9e30b9b)
   
   
-- Setting up Mage-ai, PostgreSQL and pgAdmin through the Master VM Instance SSH.
+#### Setting up Mage-ai, PostgreSQL and pgAdmin through the Master VM Instance SSH.
 
   Copy **repositories.sh** into VM. The repositories.sh is script for installing docker network and bring up docker containers of Mage-ai, postgresql and pgAdmin.
   ```
@@ -190,7 +190,8 @@ If you would like to remove your stack from the Cloud, use the **terraform destr
   
   ![image](https://github.com/garjita63/retailrocket-ecommerce-batch/assets/77673886/03991861-af32-4840-9d9d-d06f476da686)
 
-  Restart Juypyer Notebook
+  
+  #### Restart Juypyer Notebook
 
     Stop :
     ```
@@ -205,7 +206,7 @@ If you would like to remove your stack from the Cloud, use the **terraform destr
   
     ![image](https://github.com/garjita63/retailrocket-ecommerce-batch/assets/77673886/e78fc04d-9055-4aeb-ac27-5b877a99e1ec)
 
-- Increase memory size for cluster if required, and then restart Jupyter Notebook
+#### Increase memory size for cluster if required, and then restart Jupyter Notebook
 
   ```
   jupyter notebook --generate-config
