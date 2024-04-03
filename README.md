@@ -311,18 +311,18 @@ Pipeline and its blocks available in mage-project1.tar files.
 
 - Run the Mage pipeline if the dataset size is large enough and if there are VM memory size limitations
   
-Because my VM instance memory has limited memory (only 8 GB), to get more free memory, the services below will be stopped to allow the running pipeline process to run smoothly:
-  - sudo systemctl stop mysql
-  - sudo systemctl stop jupyter
-  - sudo systemctl stop spark-history-server.service
-  - sudo systemctl stop hive-metastore.service hive-server2.service
-  - sudo systemctl stop hadoop-mapreduce-historyserver.service
-  - sudo systemctl stop hadoop-yarn-resourcemanager.service 
-  - sudo systemctl stop	hadoop-yarn-timelineserver.service
-  - sudo systemctl stop hadoop-hdfs-secondarynamenode.service
-  - sudo systemctl stop hadoop-hdfs-namenode.service
-  - sudo systemctl status hadoop-hdfs-namenode.service
-  - 
+  Because my VM instance memory has limited memory (only 8 GB), to get more free memory, the services below will be stopped to allow the running pipeline process to run smoothly:
+    - sudo systemctl stop mysql
+    - sudo systemctl stop jupyter
+    - sudo systemctl stop spark-history-server.service
+    - sudo systemctl stop hive-metastore.service hive-server2.service
+    - sudo systemctl stop hadoop-mapreduce-historyserver.service
+    - sudo systemctl stop hadoop-yarn-resourcemanager.service 
+    - sudo systemctl stop	hadoop-yarn-timelineserver.service
+    - sudo systemctl stop hadoop-hdfs-secondarynamenode.service
+    - sudo systemctl stop hadoop-hdfs-namenode.service
+    - sudo systemctl status hadoop-hdfs-namenode.service
+    
 
 
 
