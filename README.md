@@ -330,7 +330,7 @@ Pipeline and its blocks available in mage-project1.tar files.
 
     Now we have more free memory available.
   
-    These services would start automaticcaly when VM Instances started.
+    These services would start automaticcaly when Cluster and VM Instances started.
   
 - Running Mage Pipeline
 
