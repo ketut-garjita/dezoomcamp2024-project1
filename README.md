@@ -351,7 +351,7 @@ To run a Mage pipeline once, you can do so by setting up a trigger with the sche
 
   ![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/7d5fb69e-cf99-40fe-b6b1-403a9e7ee537)
 
-- File in GCS bucket
+- Files in GCS bucket
 
   ![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/7b571e9b-8f80-40e6-a807-40259837d8f5)
 
@@ -532,8 +532,3 @@ To run a Mage pipeline once, you can do so by setting up a trigger with the sche
 [Number of categoryid by parentid](https://lookerstudio.google.com/s/rykyVybnLkU)
 
 ![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/9d74dace-e7ba-40e1-a9cf-2e09bd3a76a8)
-
-
-
-
-
