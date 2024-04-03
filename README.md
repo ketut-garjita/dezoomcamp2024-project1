@@ -309,6 +309,22 @@ Pipeline and its blocks available in mage-project1.tar files.
 
 ![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/a6f1a529-cbf2-42db-88ee-5ab21923a8b0)
 
+- Run the Mage pipeline if the dataset size is large enough and if there are VM memory size limitations
+  
+Because my VM instance memory has limited memory (only 8 GB), to get more free memory, the services below will be stopped to allow the running pipeline process to run smoothly:
+  - sudo systemctl stop mysql
+  - sudo systemctl stop jupyter
+  - sudo systemctl stop spark-history-server.service
+  - sudo systemctl stop hive-metastore.service hive-server2.service
+  - sudo systemctl stop hadoop-mapreduce-historyserver.service
+  - sudo systemctl stop hadoop-yarn-resourcemanager.service 
+  - sudo systemctl stop	hadoop-yarn-timelineserver.service
+  - sudo systemctl stop hadoop-hdfs-secondarynamenode.service
+  - sudo systemctl stop hadoop-hdfs-namenode.service
+  - sudo systemctl status hadoop-hdfs-namenode.service
+  - 
+
+
 
 ## BigQuery Tables
 
