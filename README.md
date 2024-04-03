@@ -542,7 +542,7 @@ To run a Mage pipeline once, you can do so by setting up a trigger with the sche
  
 ## Dashboard
 
-**BigQuery --> Google Looker Studio**
+- BigQuery --> Google Looker Studio
 
 [The 10 Sold Items](https://lookerstudio.google.com/reporting/1d41fc0d-7470-4e45-9951-9a9e20dc1102)
 
@@ -557,7 +557,7 @@ To run a Mage pipeline once, you can do so by setting up a trigger with the sche
 ![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/9d74dace-e7ba-40e1-a9cf-2e09bd3a76a8)
 
 
-**BigQuery --> Pysspark SQL --> Pandas**
+- BigQuery --> Pysspark SQL --> Pandas
 
 ![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/e49aa80a-cc74-47bd-aae4-d7d2ffb2b450)
 
