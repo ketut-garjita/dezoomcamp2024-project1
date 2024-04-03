@@ -306,7 +306,7 @@ Pipeline and its blocks available in mage-project1.tar files.
 
 Because there is a limited memory size on the VM instance (only 8 GB), I load data one block per table.
 
-Memory used hadoop dfs, hadoop yarn, spark, hive, docker containers, jupyter-notebook services. 
+Memory used for hadoop dfs, hadoop yarn, spark, hive, docker containers, jupyter-notebook services. 
 
 ![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/61b8da66-962c-40e8-91b8-b01fd8246bdd)
 
@@ -334,8 +334,8 @@ Memory used hadoop dfs, hadoop yarn, spark, hive, docker containers, jupyter-not
 
 ![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/a6f1a529-cbf2-42db-88ee-5ab21923a8b0)
 
-- Run the Mage pipeline if the dataset size is large enough and if there are VM memory size limitations
-  
+- Run the Mage pipeline
+
   Because my VM instance memory has limited memory (only 8 GB), to get more free memory, the services below will be stopped to allow the running pipeline process to run smoothly:
     - sudo systemctl stop mysql
     - sudo systemctl stop jupyter
