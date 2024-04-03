@@ -194,14 +194,17 @@ Copy **repositories.sh** into VM. The repositories.sh is script for installing d
   #### Restart Juypyer Notebook
 
   Stop :
-    ```
-    sudo systemctl stop jupyter
-    ```
+  
+  ```
+  sudo systemctl stop jupyter
+  ```
     
-    Start by using port 8888 :
-    ```
-    jupyter-notebook  --port=8888 --ip=0.0.0.0 --no-browser
-    ```
+  Start by using port 8888 :
+  
+  ```
+  jupyter-notebook  --port=8888 --ip=0.0.0.0 --no-browser
+  ```
+  
   Note: we use 0.0.0.0 just for demo purpose. Don't use this in production!
   
   ![image](https://github.com/garjita63/retailrocket-ecommerce-batch/assets/77673886/e78fc04d-9055-4aeb-ac27-5b877a99e1ec)
@@ -222,36 +225,36 @@ Copy **repositories.sh** into VM. The repositories.sh is script for installing d
 
 #### Spark master and worker clusters
 
-  Edit ~/.bashrc file and add lines below:
+Edit ~/.bashrc file and add lines below:
   
-  ```
-  export SPATH=$SPARK_HOME/bin:$SPARK/sbin:$PATH
-  source ~/.bashrc
-  which start-all.sh
-  ```
+ ```
+export SPATH=$SPARK_HOME/bin:$SPARK/sbin:$PATH
+source ~/.bashrc
+which start-all.sh
+```
     
-  Start master and worker clusters
+Start master and worker clusters
   
-  ```
-  start-all.sh
-  ```
+```
+start-all.sh
+```
 
-  Try run spark by using dataset on hdfs
+Try run spark by using dataset on hdfs
   
-  Copy dataset folder into /user/<some_folder>
+Copy dataset folder into /user/<some_folder>
   
-  ```
-  hdfs dfs -mkdir /user/<some_folder>
-  hdfs dfs -copyFromLocal ecommerce-dataset/ /user/<some_folder>
-  ```
+```
+hdfs dfs -mkdir /user/<some_folder>
+hdfs dfs -copyFromLocal ecommerce-dataset/ /user/<some_folder>
+```
 
-  Login to Master Cluster web
+Login to Master Cluster web
 
-  ![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/cc931295-eca6-4bd7-8e20-b39bb5ef1213)
+![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/cc931295-eca6-4bd7-8e20-b39bb5ef1213)
 
-  Login to Worker Cluster web
+Login to Worker Cluster web
 
-  ![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/b9ac3c09-8016-47ac-a854-243a5d1d2f72)
+![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/b9ac3c09-8016-47ac-a854-243a5d1d2f72)
 
 
 ## Mage-ai orchestration pipelines
@@ -264,10 +267,12 @@ Create two runtime variables: bucket_name and dataset. These variables used by a
 
 Pipeline and its blocks available in mage-project1.tar files.
 - Put mage-project1.tar into VM. You must have file copy authority to the master VM.
+
   ```
   gcloud auth login
   gcloud config set project <project_name>
   ```
+
   *allow to access of your google account*
   
   ```
