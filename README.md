@@ -101,24 +101,24 @@ If you would like to remove your stack from the Cloud, use the **terraform destr
 
 #### Assign External IP Address
 
-  After terraform apply complete succeesfully, assign External IP Address for Master and Workers instances using Console.
+After terraform apply complete succeesfully, assign External IP Address for Master and Workers instances using Console.
 
-  From VM Instance (Compute Engine) --> SSH
+From VM Instance (Compute Engine) --> SSH
     
-  ![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/2d4ff3e3-a28a-4739-a17c-39d64ae4683e)
+![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/2d4ff3e3-a28a-4739-a17c-39d64ae4683e)
   
-  ![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/b67244eb-3b31-4f7d-ada6-76f261ba1887)
+![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/b67244eb-3b31-4f7d-ada6-76f261ba1887)
     
-  ![image](https://github.com/garjita63/retailrocket-ecommerce-batch/assets/77673886/b0b4c8b8-84bb-40fa-bdde-cd1a517ba399)
+![image](https://github.com/garjita63/retailrocket-ecommerce-batch/assets/77673886/b0b4c8b8-84bb-40fa-bdde-cd1a517ba399)
     
-  ![image](https://github.com/garjita63/retailrocket-ecommerce-batch/assets/77673886/b2ab4aaf-24db-49cc-9d35-c828777bb4e3)
+![image](https://github.com/garjita63/retailrocket-ecommerce-batch/assets/77673886/b2ab4aaf-24db-49cc-9d35-c828777bb4e3)
     
-  ![image](https://github.com/garjita63/retailrocket-ecommerce-batch/assets/77673886/096daaa8-c50d-44bf-8dcb-c6f0b9e30b9b)
+![image](https://github.com/garjita63/retailrocket-ecommerce-batch/assets/77673886/096daaa8-c50d-44bf-8dcb-c6f0b9e30b9b)
   
   
 #### Setting up Mage-ai, PostgreSQL and pgAdmin through the Master VM Instance SSH.
 
-  Copy **repositories.sh** into VM. The repositories.sh is script for installing docker network and bring up docker containers of Mage-ai, postgresql and pgAdmin.
+Copy **repositories.sh** into VM. The repositories.sh is script for installing docker network and bring up docker containers of Mage-ai, postgresql and pgAdmin.
   ```
   #############Install Docker network#############
   #create a network most containers will use
@@ -193,7 +193,7 @@ If you would like to remove your stack from the Cloud, use the **terraform destr
   
   #### Restart Juypyer Notebook
 
-    Stop :
+  Stop :
     ```
     sudo systemctl stop jupyter
     ```
@@ -202,11 +202,11 @@ If you would like to remove your stack from the Cloud, use the **terraform destr
     ```
     jupyter-notebook  --port=8888 --ip=0.0.0.0 --no-browser
     ```
-    Note: we use 0.0.0.0 just for demo purpose. Don't use this in production!
+  Note: we use 0.0.0.0 just for demo purpose. Don't use this in production!
   
-    ![image](https://github.com/garjita63/retailrocket-ecommerce-batch/assets/77673886/e78fc04d-9055-4aeb-ac27-5b877a99e1ec)
+  ![image](https://github.com/garjita63/retailrocket-ecommerce-batch/assets/77673886/e78fc04d-9055-4aeb-ac27-5b877a99e1ec)
 
-#### Increase memory size for cluster if required, and then restart Jupyter Notebook
+  Increase memory size for cluster if required, and then restart Jupyter Notebook
 
   ```
   jupyter notebook --generate-config
@@ -220,32 +220,35 @@ If you would like to remove your stack from the Cloud, use the **terraform destr
 
   Delete # character
 
-- Spark master and worker clusters
+#### Spark master and worker clusters
 
-    Edit ~/.bashrc file and add lines below:
+  Edit ~/.bashrc file and add lines below:
     ```
     export SPATH=$SPARK_HOME/bin:$SPARK/sbin:$PATH
     source ~/.bashrc
     which start-all.sh
     ```
     
-    Start master and worker clusters
+  Start master and worker clusters
     ```
     start-all.sh
     ```
 
-    Try run spark by using dataset on hdfs
+  Try run spark by using dataset on hdfs
   
-    Copy dataset folder into /user/<some_folder>
+  Copy dataset folder into /user/<some_folder>
     ```
     hdfs dfs -mkdir /user/<some_folder>
     hdfs dfs -copyFromLocal ecommerce-dataset/ /user/<some_folder>
     ```
 
-    Login to Master Cluster web
+  Login to Master Cluster web
 
-    Login to Worker Cluster web
+  ![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/cc931295-eca6-4bd7-8e20-b39bb5ef1213)
 
+  Login to Worker Cluster web
+
+  ![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/b9ac3c09-8016-47ac-a854-243a5d1d2f72)
 
 
 ## Mage-ai orchestration pipelines
