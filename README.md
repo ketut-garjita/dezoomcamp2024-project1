@@ -24,7 +24,7 @@ The behaviour data, i.e. events like clicks, add to carts, transactions, represe
 - Infrastructure as code (IaC) : Terraform
 - Workflow orchestration : Mage-ai
 - Data Warehouse : BigQuery
-- Batch processing : pyspark SQL
+- Batch processing : spark SQL
 - IDE : VS Code, Jupyter Notebook
 - Language : Python
 - Visualisation : Google Looker Studio
