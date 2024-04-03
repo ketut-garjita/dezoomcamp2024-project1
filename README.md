@@ -176,9 +176,10 @@ Copy **repositories.sh** into VM. The repositories.sh is script for installing d
 
   *Note : provide password in repositories.sh file above*
   
+  ```
   chmod +x repositories.sh
-
   sudo ./repositories.sh
+  ```
 
   ==> *Mage-ai, postgresql and pgAdmin would be installed and up running.*
 
