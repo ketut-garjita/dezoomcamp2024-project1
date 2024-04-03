@@ -298,6 +298,10 @@ Pipeline and its blocks available in mage-project1.tar files.
 
 ![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/780553c9-a6af-4c34-b9f5-7559947b4fd1)
 
+Because there is a limited memory size on the VM instance (only 8 GB), I load data one block per table.
+
+Memory used hadoop dfs, hadoop yarn, spark, hive, docker containers, jupyter-notebook services. 
+
 ![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/61b8da66-962c-40e8-91b8-b01fd8246bdd)
 
 ![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/278928b2-9fea-4814-8fe7-c5ab8385a900)
