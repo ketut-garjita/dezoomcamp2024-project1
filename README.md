@@ -334,7 +334,7 @@ Memory used for hadoop dfs, hadoop yarn, spark, hive, docker containers, jupyter
 
 ![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/a6f1a529-cbf2-42db-88ee-5ab21923a8b0)
 
-- Run the Mage pipeline
+- Running the Mage pipeline
 
   Because my VM instance memory has limited memory (only 8 GB), to get more free memory, the services below will be stopped to allow the running pipeline process to run smoothly:
     - sudo systemctl stop mysql
@@ -349,11 +349,9 @@ Memory used for hadoop dfs, hadoop yarn, spark, hive, docker containers, jupyter
 
     ![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/9d2c075f-90f5-49c0-9223-690d6d67055c)
 
-    Now we have more free memory available.
+Now we have more free memory available.
   
-    These services would start automaticcaly when Cluster and VM Instances started.
-  
-- Running Mage Pipeline
+These services would start automaticcaly when Cluster and VM Instances started.
 
 To run a Mage pipeline once, you can do so by setting up a trigger with the schedule type set to "@once". This can be achieved by navigating to the pipeline’s trigger page in the Mage UI, and selecting the [Run @once] option in the page’s subheader. This action creates a trigger that executes the pipeline a single time immediately.
 
@@ -432,7 +430,7 @@ To run a Mage pipeline once, you can do so by setting up a trigger with the sche
     
     spark = SparkSession.builder.config(conf=conf).getOrCreate()
     
-    project_id = "semar-de-project1"
+    project_id = "<project_name>"
     dataset_id = "project1"
     table_source = "events"
     
@@ -452,7 +450,7 @@ To run a Mage pipeline once, you can do so by setting up a trigger with the sche
     
     events_transform.show()
     
-    project_id = "semar-de-project1"
+    project_id = "<project_name>"
     dataset_id = "project1"
     table_target = "events_dwh"
     parttition_column = "DATE_FORMAT(timestamp, 'yyyy-MM')"
@@ -492,7 +490,7 @@ To run a Mage pipeline once, you can do so by setting up a trigger with the sche
     
     spark = SparkSession.builder.config(conf=conf).getOrCreate()
     
-    project_id = "semar-de-project1"
+    project_id = "<project_name>"
     dataset_id = "project1"
     table_source = "item_properties"
     
@@ -512,7 +510,7 @@ To run a Mage pipeline once, you can do so by setting up a trigger with the sche
     
     item_properties_transform.show()
     
-    project_id = "semar-de-project1"
+    project_id = "<projet_name>"
     dataset_id = "project1"
     table_target = "item_properties_dwh"
     parttition_column = "DATE_FORMAT(timestamp, 'yyyy-MM')"
