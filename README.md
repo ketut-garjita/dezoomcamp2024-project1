@@ -223,24 +223,27 @@ Copy **repositories.sh** into VM. The repositories.sh is script for installing d
 #### Spark master and worker clusters
 
   Edit ~/.bashrc file and add lines below:
-    ```
-    export SPATH=$SPARK_HOME/bin:$SPARK/sbin:$PATH
-    source ~/.bashrc
-    which start-all.sh
-    ```
+  
+  ```
+  export SPATH=$SPARK_HOME/bin:$SPARK/sbin:$PATH
+  source ~/.bashrc
+  which start-all.sh
+  ```
     
   Start master and worker clusters
-    ```
-    start-all.sh
-    ```
+  
+  ```
+  start-all.sh
+  ```
 
   Try run spark by using dataset on hdfs
   
   Copy dataset folder into /user/<some_folder>
-    ```
-    hdfs dfs -mkdir /user/<some_folder>
-    hdfs dfs -copyFromLocal ecommerce-dataset/ /user/<some_folder>
-    ```
+  
+  ```
+  hdfs dfs -mkdir /user/<some_folder>
+  hdfs dfs -copyFromLocal ecommerce-dataset/ /user/<some_folder>
+  ```
 
   Login to Master Cluster web
 
@@ -264,25 +267,33 @@ Pipeline and its blocks available in mage-project1.tar files.
   ```
   gcloud auth login
   gcloud config set project <project_name>
-  --> allow to access of your google account
   ```
+  *allow to access of your google account*
+  
   ```
   gcloud compute scp mage-project1.tar <username>@<project_name>:/home/<username>
   ```
+  
 - Open SSH on Master instance
 - Copy mage-project1.tar into mage container (in this project named: dezoomcamp-mage)
+
   ```
   docker cp mage-project1.tar <mage_container>:/home/src/<some_folder>   # in this project is "dezoomcamp'
   ```
+  
 - Go to mage container
+
   ```
   docker exec -it <mage_container> bash
   ```
+  
 - Extract (untar) mage-project.tar file
+
   ```
   cd /home/src/<some_folder>
   tar -xvf mage-project1.tar
   ```
+  
 - Open Mage application website : http://<master_external_ip_address>:6789 
 
 ![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/780553c9-a6af-4c34-b9f5-7559947b4fd1)
