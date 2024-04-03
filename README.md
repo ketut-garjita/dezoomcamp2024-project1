@@ -321,33 +321,195 @@ Pipeline and its blocks available in mage-project1.tar files.
     - sudo systemctl stop	hadoop-yarn-timelineserver.service
     - sudo systemctl stop hadoop-hdfs-secondarynamenode.service
     - sudo systemctl stop hadoop-hdfs-namenode.service
-    - sudo systemctl status hadoop-hdfs-namenode.service
-    
+
+    ![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/9d2c075f-90f5-49c0-9223-690d6d67055c)
+
+    Now we have more free memory available.
+  
+    These services would start automaticcaly when VM Instances started.
+  
+- Running Mage Pipeline
+
+To run a Mage pipeline once, you can do so by setting up a trigger with the schedule type set to "@once". This can be achieved by navigating to the pipeline’s trigger page in the Mage UI, and selecting the [Run @once] option in the page’s subheader. This action creates a trigger that executes the pipeline a single time immediately.
+
+![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/867a1e99-25b7-434a-a40a-5328e66b5910)
+
+![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/049d47c8-917a-4f87-8dd3-c74479b743d3)
+
+![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/1c6040ef-95f1-40df-b324-a98e346be640)
+
+![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/897c6e4c-6210-4712-85ab-86b54b7c469b)
+
+![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/2c48afda-f091-4a13-8fb9-8c249aaaf204)
 
 
+## Check Outputs
 
-## BigQuery Tables
+- Files in VM instance
 
-![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/56182c69-7fc1-4193-a69a-2a5fedfaa41f)
+  ![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/7d5fb69e-cf99-40fe-b6b1-403a9e7ee537)
 
+- File in GCS bucket
 
-events preview
+  ![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/7b571e9b-8f80-40e6-a807-40259837d8f5)
 
-![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/4504b276-41de-4281-bb8d-9e80f7eea1b8)
+  ![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/e2644476-3161-4c5b-bac6-0ae8f3b0b2aa)
 
-events_dwh preview
+- BigQuery Tables
 
-![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/a8cf4106-79da-4a5f-b915-542b6f30d7a7)
+  ![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/ffee0f9c-d474-4711-8a0c-10fcb1bf3ef5)
 
-item_properties preview
+  *category_tree*
 
-![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/e3709b62-e099-4a65-b137-cf521f134aa5)
+  ![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/8f2de205-6e36-4787-9119-b14b336092c0)
 
-item_properties_dwh preview
+  *events preview*
 
-![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/9b30666d-8ab7-4e9b-b88a-f57c438b5aff)
+  ![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/4504b276-41de-4281-bb8d-9e80f7eea1b8)
 
+  *item_properties preview*
 
+  ![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/e3709b62-e099-4a65-b137-cf521f134aa5)
+
+- Convert unix timestanp of timestamp column on events and item_properties tables
+
+  - Start Cluster on Console
+  
+    - Stop and Start VM Instances (Master and Workers)
+
+  Open Master SSH
+
+  Restart jupyter-notebook
+
+  ```
+  sudo systemctl stop jupyter
+  jupyter-notebook  --port=8888 --ip=0.0.0.0 --no-browser
+  ```
+  
+  Run script below on Jupyter-Notebook editor.
+  ```
+  # Transform events table into events_dwh
+  # from_unixtime --> datetime (yyyy-MM-DD HH:mm:ss)
+  # Run in Cloud Jupyter Notebook
+  
+  import pyspark
+  from pyspark.sql import SparkSession
+  from pyspark.conf import SparkConf
+  from pyspark.context import SparkContext
+  
+  # credentials_location = '/root/.google/credentials/google-creds.json'
+  
+  
+  conf = SparkConf() \
+      .setAppName('events') \
+      .set("spark.jars", "/usr/lib/spark/jars/gcs-connector-hadoop3-latest.jar") \
+      .set("spark.hadoop.google.cloud.auth.service.account.enable", "true") 
+  #    .set("spark.hadoop.google.cloud.auth.service.account.json.keyfile", credentials_location)
+  
+  spark = SparkSession.builder.config(conf=conf).getOrCreate()
+  
+  project_id = "semar-de-project1"
+  dataset_id = "project1"
+  table_source = "events"
+  
+  df = spark.read.format('bigquery') \
+      .option("temporaryGcsBucket","dataproc-temp-asia-southeast2-212352110204-1oi7hped") \
+      .option("project", project_id) \
+      .option("dataset", dataset_id) \
+      .load(table_source)
+      
+  df.createOrReplaceTempView("temp_events")
+  
+  events_transform = spark.sql("""
+  select from_unixtime((timestamp / 1000), "yyyy-MM-dd HH:mm:ss") as timestamp, 
+      visitorid, event, itemid, transactionid
+  from temp_events
+  """)
+  
+  events_transform.show()
+  
+  project_id = "semar-de-project1"
+  dataset_id = "project1"
+  table_target = "events_dwh"
+  parttition_column = "DATE_FORMAT(timestamp, 'yyyy-MM')"
+  cluster_column = "event"
+  
+  events_transform.write \
+      .format("bigquery") \
+      .option("temporaryGcsBucket","dataproc-temp-asia-southeast2-212352110204-1oi7hped") \
+      .option("table", f"{project_id}.{dataset_id}.{table_target}") \
+      .option("PARTITION BY",  parttition_column) \
+      .option("CLUSTER BY", cluster_column) \
+      .mode('Overwrite') \
+      .save()
+  
+  # Stop Spark session
+  spark.stop()
+  ```
+
+  ```
+  # Transform item_properties table into item_properties_dwh
+  # from_unixtime --> datetime (yyyy-MM-DD HH:mm:ss)
+  # Run in Cloud Jupyter Notebook
+  
+  import pyspark
+  from pyspark.sql import SparkSession
+  from pyspark.conf import SparkConf
+  from pyspark.context import SparkContext
+  
+  # credentials_location = '/root/.google/credentials/google-creds.json'
+  
+  
+  conf = SparkConf() \
+      .setAppName('item_properties') \
+      .set("spark.jars", "/usr/lib/spark/jars/gcs-connector-hadoop3-latest.jar") \
+      .set("spark.hadoop.google.cloud.auth.service.account.enable", "true") 
+  #    .set("spark.hadoop.google.cloud.auth.service.account.json.keyfile", credentials_location)
+  
+  spark = SparkSession.builder.config(conf=conf).getOrCreate()
+  
+  project_id = "semar-de-project1"
+  dataset_id = "project1"
+  table_source = "item_properties"
+  
+  df = spark.read.format('bigquery') \
+      .option("temporaryGcsBucket","dataproc-temp-asia-southeast2-212352110204-1oi7hped") \
+      .option("project", project_id) \
+      .option("dataset", dataset_id) \
+      .load(table_source)
+      
+  df.createOrReplaceTempView("temp_item_properties")
+  
+  item_properties_transform = spark.sql("""
+  select from_unixtime((timestamp / 1000), "yyyy-MM-dd HH:mm:ss") as timestamp, 
+      itemid, property, value
+  from temp_item_properties
+  """)
+  
+  item_properties_transform.show()
+  
+  project_id = "semar-de-project1"
+  dataset_id = "project1"
+  table_target = "item_properties_dwh"
+  parttition_column = "DATE_FORMAT(timestamp, 'yyyy-MM')"
+  cluster_column = "property"
+  
+  item_properties_transform.write \
+      .format("bigquery") \
+      .option("temporaryGcsBucket","dataproc-temp-asia-southeast2-212352110204-1oi7hped") \
+      .option("table", f"{project_id}.{dataset_id}.{table_target}") \
+      .option("PARTITION BY",  parttition_column) \
+      .option("CLUSTER BY", cluster_column) \
+      .mode('Overwrite') \
+      .save()
+  
+  # Stop Spark session
+  spark.stop()
+  ```
+
+  Check tables in BigQuert
+  
+ 
 ## Dashboard
 
 [The 10 Sold Items](https://lookerstudio.google.com/reporting/1d41fc0d-7470-4e45-9951-9a9e20dc1102)
