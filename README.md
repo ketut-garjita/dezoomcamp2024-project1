@@ -556,6 +556,8 @@ To run a Mage pipeline once, you can do so by setting up a trigger with the sche
 
 
 - BigQuery --> Pyspark SQL --> Pandas
+  
+  https://github.com/garjita63/dezoomcamp2024-project1/blob/main/EDA%20-%20Dashboard.ipynb
 
 ![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/e49aa80a-cc74-47bd-aae4-d7d2ffb2b450)
 
