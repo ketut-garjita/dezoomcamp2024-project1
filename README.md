@@ -410,7 +410,7 @@ To run a Mage pipeline once, you can do so by setting up a trigger with the sche
     Script link:
     https://github.com/garjita63/dezoomcamp2024-project1/blob/main/trasnform_dwh_tables.ipynb
 
-    Make sure you have free enough disk space on VM
+    *Make sure you have free enough disk space on VM*
     
     ```
     # Transform events table into events_dwh
