@@ -405,7 +405,10 @@ To run a Mage pipeline once, you can do so by setting up a trigger with the sche
     jupyter-notebook --port=8888 --ip=0.0.0.0 --no-browser
     ```
 
-  - Run script below on Jupyter-Notebook editor.
+  - Run script below on Jupyter-Notebook editor
+ 
+    Script link:
+    https://github.com/garjita63/dezoomcamp2024-project1/blob/main/trasnform_dwh_tables.ipynb
 
     Make sure you have free enough disk space on VM
     
