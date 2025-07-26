@@ -343,7 +343,7 @@ Memory used for hadoop dfs, hadoop yarn, spark, hive, docker containers, jupyter
 
 - Edit io_config.yaml
 
-  ![Uploading image.png…]()
+  <img width="372" height="457" alt="image" src="https://github.com/user-attachments/assets/c8fc2e2f-060f-4671-bbb4-209fc241ada3" />
 
   Update the GOOGLE_SERVICE_ACC_KEY parameter. Make it the same as the contents of the gcs credential json file.
   
