@@ -309,9 +309,6 @@ Memory used for hadoop dfs, hadoop yarn, spark, hive, docker containers, jupyter
 
 <img width="1395" height="615" alt="image" src="https://github.com/user-attachments/assets/a90c312c-76b1-47c8-b941-e1c686f23ae6" />
 
-https://github.com/ketut-garjita/dezoomcamp2024-project1/blob/main/images/load_ecommerce_dataset.png
-
-
 ![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/278928b2-9fea-4814-8fe7-c5ab8385a900)
 
 ![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/b1b6ef82-babb-41b8-9cad-db1b61464d30)
