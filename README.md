@@ -110,23 +110,6 @@ If you would like to remove your stack from the Cloud, use the **terraform destr
 
 
 ### Reproducibility
-
-#### Assign External IP Address
-
-After terraform apply complete succeesfully, assign External IP Address for Master and Workers instances using Console.
-
-From VM Instance (Compute Engine) --> SSH
-    
-![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/2d4ff3e3-a28a-4739-a17c-39d64ae4683e)
-  
-![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/b67244eb-3b31-4f7d-ada6-76f261ba1887)
-    
-![image](https://github.com/garjita63/retailrocket-ecommerce-batch/assets/77673886/b0b4c8b8-84bb-40fa-bdde-cd1a517ba399)
-    
-![image](https://github.com/garjita63/retailrocket-ecommerce-batch/assets/77673886/b2ab4aaf-24db-49cc-9d35-c828777bb4e3)
-    
-![image](https://github.com/garjita63/retailrocket-ecommerce-batch/assets/77673886/096daaa8-c50d-44bf-8dcb-c6f0b9e30b9b)
-  
   
 #### Setting up Mage-ai, PostgreSQL and pgAdmin through the Master VM Instance SSH.
 
@@ -275,7 +258,7 @@ Login to Worker Cluster web
 
 ## Mage-ai orchestration pipelines
 
-Create two runtime variables: bucket_name and dataset. These variables used by all pipeline blocks.
+Create two runtime variables: bucket_name and dataset. These variables are used by all pipeline blocks.
 
 ![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/6b1e3ff7-c0dd-4dd1-ba8a-f242e9a075ae)
 
@@ -299,13 +282,13 @@ Pipeline and its blocks available in mage-project1.tar files.
 - Copy mage-project1.tar into mage container (in this project named: dezoomcamp-mage)
 
   ```
-  docker cp mage-project1.tar <mage_container>:/home/src/dezoomcamp 
+  docker cp mage-project1.tar dezoomcamp-mage:/home/src/dezoomcamp 
   ```
   
 - Go to mage container
 
   ```
-  docker exec -it <mage_container> bash
+  docker exec -it dezoomcamp-mage bash
   ```
   
 - Extract (untar) mage-project.tar file
@@ -315,11 +298,10 @@ Pipeline and its blocks available in mage-project1.tar files.
   tar -xvf mage-project1.tar
   ```
 
-- Install opendatasets
+- Install kaggle 
   ```
   docker exec -it dezoomcamp-mage bash
   pip install kaggle
-  pip install opendatasets
   ```
   
 - Open Mage application website : http://<master_external_ip_address>:6789 
