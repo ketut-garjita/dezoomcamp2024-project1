@@ -242,7 +242,7 @@ Edit ~/.bashrc file and add lines below:
   
  ```
 export SPARK_HOME=/usr/lib/spark
-export SPATH=$SPARK_HOME/bin:$SPARK/sbin:$PATH
+export PATH=$SPARK_HOME/bin:$SPARK_HOME/sbin:$PATH
 ```
 
 source ~/.bashrc
