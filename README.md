@@ -228,7 +228,7 @@ Copy **repositories.sh** into VM. The repositories.sh is script for installing d
   jupyter notebook --generate-config
   ```
 
-  Open /home/<some_folder>/.jupyter/jupyter_notebook_config.py 
+  Open /home/<username>/.jupyter/jupyter_notebook_config.py 
 
   Edit file and modify parameter: **c.NotebookApp.max_buffer_size**
 
@@ -257,11 +257,11 @@ start-all.sh
 
 Try run spark by using dataset on hdfs
   
-Copy dataset folder into /user/<some_folder>
+Copy dataset folder into /user/<username>
   
 ```
-hdfs dfs -mkdir /user/<some_folder>
-hdfs dfs -copyFromLocal ecommerce-dataset/ /user/<some_folder>
+hdfs dfs -mkdir /user/<username>
+hdfs dfs -copyFromLocal ecommerce-dataset/ /user/<username>
 ```
 
 Login to Master Cluster web
