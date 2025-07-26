@@ -314,6 +314,13 @@ Pipeline and its blocks available in mage-project1.tar files.
   cd /home/src/dezoomcamp
   tar -xvf mage-project1.tar
   ```
+
+- Install opendatasets
+  ```
+  docker exec -it dezoomcamp-mage bash
+  pip install kaggle
+  pip install opendatasets
+  ```
   
 - Open Mage application website : http://<master_external_ip_address>:6789 
 
