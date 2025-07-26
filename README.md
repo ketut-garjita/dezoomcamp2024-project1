@@ -246,6 +246,7 @@ export SPATH=$SPARK_HOME/bin:$SPARK/sbin:$PATH
 ```
 
 source ~/.bashrc
+
 which start-all.sh
   
 Start master and worker clusters
