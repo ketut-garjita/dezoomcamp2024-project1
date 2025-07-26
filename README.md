@@ -340,6 +340,13 @@ Memory used for hadoop dfs, hadoop yarn, spark, hive, docker containers, jupyter
 ![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/68e003cb-3c92-4535-b31f-b493578e3666)
 
 
+- Edit io_config.yaml
+
+  ![Uploading image.png…]()
+
+  Update the GOOGLE_SERVICE_ACC_KEY parameter. Make it the same as the contents of the gcs credential json file.
+  
+  
 - Running the Mage pipeline
 
   Because my VM instance memory has limited memory (only 8 GB), to get more free memory, the services below will be stopped to allow the running pipeline process to run smoothly:
