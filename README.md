@@ -306,7 +306,10 @@ Because there is a limited memory size on the VM instance (only 8 GB), I load da
 
 Memory used for hadoop dfs, hadoop yarn, spark, hive, docker containers, jupyter-notebook services. 
 
-<img width="578" height="226" alt="image" src="https://github.com/user-attachments/assets/295112ef-1687-4256-b72a-7ae11864ec30" />
+
+<img width="1395" height="615" alt="image" src="https://github.com/user-attachments/assets/a90c312c-76b1-47c8-b941-e1c686f23ae6" />
+
+https://github.com/ketut-garjita/dezoomcamp2024-project1/blob/main/images/load_ecommerce_dataset.png
 
 
 ![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/278928b2-9fea-4814-8fe7-c5ab8385a900)
