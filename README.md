@@ -306,7 +306,8 @@ Because there is a limited memory size on the VM instance (only 8 GB), I load da
 
 Memory used for hadoop dfs, hadoop yarn, spark, hive, docker containers, jupyter-notebook services. 
 
-![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/61b8da66-962c-40e8-91b8-b01fd8246bdd)
+<img width="578" height="226" alt="image" src="https://github.com/user-attachments/assets/295112ef-1687-4256-b72a-7ae11864ec30" />
+
 
 ![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/278928b2-9fea-4814-8fe7-c5ab8385a900)
 
