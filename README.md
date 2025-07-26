@@ -241,11 +241,13 @@ Copy **repositories.sh** into VM. The repositories.sh is script for installing d
 Edit ~/.bashrc file and add lines below:
   
  ```
+export SPARK_HOME=/usr/lib/spark
 export SPATH=$SPARK_HOME/bin:$SPARK/sbin:$PATH
+```
+
 source ~/.bashrc
 which start-all.sh
-```
-    
+  
 Start master and worker clusters
   
 ```
