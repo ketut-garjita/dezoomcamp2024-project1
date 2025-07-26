@@ -299,7 +299,7 @@ Pipeline and its blocks available in mage-project1.tar files.
 - Copy mage-project1.tar into mage container (in this project named: dezoomcamp-mage)
 
   ```
-  docker cp mage-project1.tar <mage_container>:/home/src/<some_folder>   # in this project is "dezoomcamp'
+  docker cp mage-project1.tar <mage_container>:/home/src/dezoomcamp 
   ```
   
 - Go to mage container
@@ -311,7 +311,7 @@ Pipeline and its blocks available in mage-project1.tar files.
 - Extract (untar) mage-project.tar file
 
   ```
-  cd /home/src/<some_folder>
+  cd /home/src/dezoomcamp
   tar -xvf mage-project1.tar
   ```
   
