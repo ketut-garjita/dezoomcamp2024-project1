@@ -258,12 +258,6 @@ Login to Worker Cluster web
 
 ## Mage-ai orchestration pipelines
 
-Create two runtime variables: bucket_name and dataset. These variables are used by all pipeline blocks.
-
-![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/6b1e3ff7-c0dd-4dd1-ba8a-f242e9a075ae)
-
-![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/68e003cb-3c92-4535-b31f-b493578e3666)
-
 Pipeline and its blocks available in mage-project1.tar files.
 - Put mage-project1.tar into VM. You must have file copy authority to the master VM.
 
@@ -337,6 +331,14 @@ Memory used for hadoop dfs, hadoop yarn, spark, hive, docker containers, jupyter
 ![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/35b761b9-2377-4312-b43e-d37bca75dc43)
 
 ![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/a6f1a529-cbf2-42db-88ee-5ab21923a8b0)
+
+
+- Create two runtime variables: bucket_name and dataset. These variables are used by all pipeline blocks.
+
+![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/6b1e3ff7-c0dd-4dd1-ba8a-f242e9a075ae)
+
+![image](https://github.com/garjita63/dezoomcamp2024-project1/assets/77673886/68e003cb-3c92-4535-b31f-b493578e3666)
+
 
 - Running the Mage pipeline
 
